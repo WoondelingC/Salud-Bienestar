@@ -1,0 +1,337 @@
+html {
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-image: linear-gradient(
+    -225deg,
+    #a445b2 0%,
+    #d41872 52%,
+    #ff0066 100%
+  );
+  min-height: 100%;
+  padding-bottom: 5rem;
+}
+h1,
+h2 {
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+
+  text-transform: uppercase;
+
+  font-family: "Staatliches", cursive;
+  letter-spacing: 1px;
+}
+.lista-citas .media {
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 3rem;
+}
+
+.lista-citas .media:last-of-type {
+  border-bottom: 0;
+}
+.lista-citas .media-body p {
+  margin: 0;
+}
+.lista-citas .media-body button {
+  margin-top: 1rem !important;
+}
+.lista-citas .media-body span {
+  font-weight: bold;
+}
+
+label {
+  color: white;
+}
+
+input[type="date"],
+input[type="time"] {
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.cita {
+  padding: 2rem;
+  background: white;
+  border-bottom: 1px solid #e1e1e1;
+  color: black;
+}
+
+.cita p {
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+.cita p span {
+  font-weight: normal;
+}
+.cita:first-of-type {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+.cita:last-of-type {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.button.eliminar,
+.button.eliminar:hover {
+  background-color: #c10059;
+  color: white;
+  margin-top: 2rem;
+}
+
+.alerta-error {
+  background-color: white;
+  color: red;
+  padding: 1rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Staatliches", cursive;
+}
+
+.form-register {
+  width: 400px;
+  background: #0e365e;
+  padding: 30px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 4px;
+  font-family: "calibri";
+  color: white;
+  box-shadow: 7px 13px 37px #000;
+}
+
+.form-register h1 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+h1 {
+  text-align: center;
+}
+
+.input1 {
+  width: 100%;
+  background: #24303c;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #1f53c5;
+  font-family: "calibri";
+  font-size: 18px;
+  color: white;
+}
+#dropdown {
+  width: 100%;
+  background: #bfc9d3;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #030b1d;
+  font-family: "calibri";
+  font-size: 18px;
+  color: black;
+}
+.form-register p {
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 40px;
+}
+
+.form-register a {
+  color: white;
+  text-decoration: none;
+}
+
+.form-register a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.form-register .button {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+.input-radio,
+.input-checkbox {
+  display: flex;
+  margin-right: 0.625rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+}
+.input-checkbox {
+  padding-top: 25px;
+}
+
+.form-group {
+  margin: 0 auto 1.25rem auto;
+  padding: 0.25rem;
+}
+
+div {
+  display: block;
+}
+p {
+  padding-bottom: 50px;
+}
+
+.input-textarea {
+  min-height: 120px;
+  width: 100%;
+  padding: 0.625rem;
+  resize: vertical;
+}
+input,
+button,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.input-checkbox {
+  -webkit-writing-mode: horizontal-tb !important;
+  color: -internal-light-dark(black, white);
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  cursor: default;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  border-radius: 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+}
+textarea {
+  color: -internal-light-dark(black, white);
+  display: flex;
+  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  flex-direction: column;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  border-width: 1px;
+  border-style: solid;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  padding: 2px;
+}
+
+select {
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  box-sizing: border-box;
+  align-items: center;
+  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  cursor: default;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  border-radius: 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+}
+#survey-form p {
+  font-size: 16px;
+  color: #eaeff3;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+#survey-form > div {
+  padding: 20px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+#survey-form .radio label,
+#survey-form .checkboxd label {
+  display: inline-block;
+  cursor: pointer;
+  color: #d7d7d8;
+  position: relative;
+  padding: 5px 15px 5px 51px;
+  font-size: 1em;
+  border-radius: 5px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+#survey-form .radio label:hover,
+#survey-form .checkboxd label:hover {
+  background: rgba(255, 65, 54, 0.1);
+}
+#survey-form .radio label:before,
+#survey-form .checkboxd label:before {
+  content: "";
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  left: 15px;
+  border-radius: 50%;
+  background: none;
+  border: 3px solid #835dee;
+}
+#survey-form input[type="radio"] {
+  display: none;
+}
+
+#survey-form input[type="radio"]:checked + label:before {
+  display: none;
+}
+
+#survey-form input[type="radio"]:checked + label {
+  padding: 5px 15px;
+  background: #2a32a8;
+  border-radius: 2px;
+  color: #fff;
+}
+#survey-form .checkboxd label:before {
+  border-radius: 3px;
+}
+#survey-form .checkboxd input[type="checkbox"] {
+  display: none;
+}
+#survey-form .checkboxd input[type="checkbox"]:checked + label:before {
+  display: none;
+}
+#survey-form .checkboxd input[type="checkbox"]:checked + label {
+  background: #2a32a8;
+  color: #fff;
+  padding: 5px 15px;
+}
+
+@media screen and (max-width: 800px) {
+  #form-register {
+    flex-direction: column;
+  }
+
+  #survey-form {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .button {
+    flex-direction: row;
+    flex: 0;
+  }
+}
