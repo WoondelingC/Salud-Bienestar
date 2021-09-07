@@ -82,7 +82,7 @@ let file="";
             </div>
         <div className="form-group input-group">
             <div className="input-group-text bg-light">
-                <i className="material-icons">create</i>
+                <i className="material-icons  u-full-width" ></i>
             </div>
             <input
                 type="text"
@@ -100,14 +100,7 @@ let file="";
                 defaultValue={email}
                 onChange={handleInputChange}
             />
-               <input
-                type="text"
-                name="nombre"
-                placeholder="Nombre Completo"
-                className="form-control"
-                defaultValue={nombre}
-                onChange={handleInputChange}
-            />
+              
                <label>¿Que desea Agendar?</label>
             <label for="general"> Medicina General</label>
     <input name="categoria" type="radio" class="input-radio"  id="general" value="Medicina General"
@@ -146,7 +139,7 @@ let file="";
 
         <button
                 type="submit"
-                className="u-full-width button-primary"
+                className="u-full-width button-primary button eliminar"
             >Actualizar Cita</button>
         <ListarCita />
     </form>

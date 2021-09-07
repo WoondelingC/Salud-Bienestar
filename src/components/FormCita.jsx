@@ -115,7 +115,7 @@ hora:Yup.string().required("Hora requerida"),
                     type="text"
                     name="nombre"
                     placeholder="Nombre Completo"
-                    className="form-control"
+                    className="form-control  u-full-width"
                     value={formik.values.name}
                     onChange={formik.handleChange}
                    
@@ -125,7 +125,7 @@ hora:Yup.string().required("Hora requerida"),
                     type="text"
                     name="email"
                     placeholder="Correo Electronico"
-                    className="form-control"
+                    className="form-control u-full-width"
                     value={formik.values.email}
                     onChange={formik.handleChange}
                    
