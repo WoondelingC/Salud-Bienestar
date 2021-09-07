@@ -7,8 +7,10 @@ import { A } from './Registro';
 import { Input } from './Registro';
 
 const Google = styled.div`
-  border-radius: 50px
+    border-radius: 50px;
 `
+  
+
 
 const Login = () => {
     
