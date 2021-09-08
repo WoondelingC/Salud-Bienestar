@@ -1,6 +1,6 @@
 import React from 'react';
-import { useForm } from '../hooks/useForm';
-import { listaSearch } from '../actions/citaAction';
+import { useForm } from '../../hooks/useForm';
+import { listaSearch } from '../../actions/citaAction';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux'
 import  MostrarCita  from './MostrarCita';

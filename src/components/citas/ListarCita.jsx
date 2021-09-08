@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import {Delete, activeCita} from '../actions/citaAction'
-
+import {Delete, activeCita} from '../../actions/citaAction'
+import {AiFillEdit,AiFillDelete} from 'react-icons/all'
 const ListarCita = () => {
     const { cita } = useSelector(state => state.cita)
 
@@ -28,21 +28,16 @@ const ListarCita = () => {
                                 <div className="d-flex justify-content-between">
                                     <h4>{data.name}</h4>
                                     <div>
-                                        <i className="material-icons text-danger"
+                                        <i className="material-icons text-danger pointer"
                                             onClick={() => handleDelete(data.id)}
                                         >
-                                            close
+                                            <AiFillDelete />
                                         </i>
                                         <Link  onClick={() => handleEdit(data)}
                 to={`/edit/${data.id}`}
                 > 
-                                        <i
-                                            className="material-icons"
-                                           
-                                        
-                                             >
-                                            create
-                                        </i></Link>
+                                        <AiFillEdit />
+                                        </Link>
                                     </div>
                                 </div>
                                 <p>{data.nombre}</p>
