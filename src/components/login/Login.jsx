@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import logo from '../../assets/Logo.jpeg'
+import logo from '../../assets/logo.png'
 import { Img } from './Registro';
 import { Button } from './Registro';
 import { A } from './Registro';

@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import styled from 'styled-components';
-import logo from '../../assets/Logo.jpeg'
+import logo from '../../assets/logo.png'
 
 export const Input = styled.input`
   background-color: rgba(176, 194, 184, 18);

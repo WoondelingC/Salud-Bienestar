@@ -3,7 +3,8 @@ import user from '../assets/user.jpg'
 import styled from 'styled-components'
 import plus from '../assets/anadir.png'
 import '../style/main.css'
-import Navbar from './Navbar'
+import Navbar from './Navbars/Navbar'
+import PrincipalNav from './Navbars/PrincipalNav'
 
 const User = styled.img`
     width: 45%;
@@ -15,7 +16,7 @@ const Perfil = () => {
     return (
         <>
         <Navbar/>
-        <div className="container text-center py-5 w-25 border border-1 border-dark content">
+        <div className="container text-center py-5 w-25 content">
             
             <h3 className="mb-5">Perfil</h3>
             <div className="mt-5 d-flex align-items-center">
@@ -42,6 +43,7 @@ const Perfil = () => {
                 
             </div>
         </div>
+        <PrincipalNav />
         </>
     )
 }
