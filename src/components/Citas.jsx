@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Cita = ({cita, eliminarCita}) => ( 
     <div className="cita">
