@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navbar } from './Navbar'
-import imgHeader from '../../assets/health-2082630_960_720.webp'
+
 import icon from '../../assets/agenda.png'
 import iconOne from '../../assets/cosecha.png'
 import iconTwo from '../../assets/ejercicio.png'
@@ -11,6 +11,8 @@ import iconSix from '../../assets/equipo-medico.png'
 import iconSeven from '../../assets/2913008.png'
 import contacto from '../../assets/contacto.png'
 import '../../style/style.css'
+import { Footer } from './Footer'
+import { Slider } from './Slider'
 
 export const Inicio = () => {
     return (
@@ -18,7 +20,7 @@ export const Inicio = () => {
             <Navbar />
 
             <header>
-                <img src={imgHeader} class="img-fluid" alt="Imagenes-iconos" />
+                <Slider/>
             </header>
 
             <div className="container__Agendar-cita">
@@ -84,12 +86,19 @@ export const Inicio = () => {
 
             <div className="container__contacto">
                 <h1>Contactanos</h1>
-                <div className="container__contacto-p">
-                    <p>¡Desde la comodidad de tu casa puedes comunicarte con un asesor para agendar tu cita!</p>
-                    <p>Bogotá D.C</p>
-                    <p>+57 38434834</p>
+
+                <div class="container contacto--p">
+                    <div class="row">
+                        <div class="col contacto">
+                            <h2>¡Desde la comodidad de tu casa puedes comunicarte con un asesor para agendar tu cita!</h2>
+                            <p>Bogotá D.C</p>
+                            <p>+57 38434834</p>
+                        </div>
+                        <div class="col contacto">
+                            <img src={contacto} alt="contacto" />
+                        </div>
+                    </div>
                 </div>
-                <img src={contacto} alt="contacto" />
 
             </div>
 
@@ -97,7 +106,7 @@ export const Inicio = () => {
 
 
 
-
+        <Footer/>
         </div>/*Fin container fluid */
     )
 }

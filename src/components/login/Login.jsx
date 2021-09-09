@@ -5,6 +5,8 @@ import { Img } from './Registro';
 import { Button } from './Registro';
 import { A } from './Registro';
 import { Input } from './Registro';
+import { Link } from 'react-router-dom'
+
 
 const Google = styled.div`
     border-radius: 50px;
@@ -17,7 +19,7 @@ const Login = () => {
     return (
       <div className="Registro py-4 container text-center w-25">
         <form className="form-signin">
-          <Img src={logo} alt="" />
+        <Link to="/Inicio"><Img src={logo} alt="logo" /></Link>
           <p className="m-0">Email</p>
           <Input
             type="email"
@@ -59,11 +61,12 @@ const Login = () => {
               </div>
               
             </Google>
-            <p className="text-dark">¿Aún no tienes cuenta? <A href="/">Registrate</A> </p>
+            <p className="text-dark">¿Aún no tienes cuenta? <Link to="/Registro">Registrate</Link> </p>
             <p className="text-dark">¿Olvidaste la contraseña?</p>
           </div>
         </form>
       </div>
+
     );
 }
 
