@@ -21,8 +21,12 @@ export const Navbar = () => {
                             <li className="nav-item">
                                 <Link className="nav-link" to='/Servicios'>Servicios</Link>
                             </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to='/Tips'>Tips de Salud</Link>
+                            <li class="nav-item">
+                                <Link class="nav-link" to='/Tips'>Tips de salud</Link>
+                            </li>
+
+                            <li class="nav-item">
+                                <Link class="nav-link" to='/Login'>Ingresar</Link>
                             </li>
                         </ul>
                     </div>

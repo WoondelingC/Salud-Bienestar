@@ -9,6 +9,8 @@ import { Input } from './Registro';
 import { useForm } from '../../hooks/useForm';
 import { login } from '../../actions/actions';
 import { loginGoogle } from '../../actions/actions';
+import { Link } from 'react-router-dom'
+
 
 const Google = styled.div`
     border-radius: 50px;
@@ -39,6 +41,8 @@ const Login = () => {
       <div className="Registro py-4 container text-center w-25">
         <form className="form-signin" onChange={handleSubmit}>
           <Img src={logo} alt="" />
+        <form className="form-signin">
+        <Link to="/Inicio"><Img src={logo} alt="logo" /></Link>
           <p className="m-0">Email</p>
           <Input
             type="email"
@@ -86,11 +90,12 @@ const Login = () => {
               </div>
               
             </Google>
-            <p className="text-dark">¿Aún no tienes cuenta? <A href="/">Registrate</A> </p>
+            <p className="text-dark">¿Aún no tienes cuenta? <Link to="/Registro">Registrate</Link> </p>
             <p className="text-dark">¿Olvidaste la contraseña?</p>
           </div>
         </form>
       </div>
+
     );
 }
 
