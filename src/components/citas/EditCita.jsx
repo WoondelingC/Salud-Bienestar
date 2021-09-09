@@ -6,6 +6,7 @@ import ListarCita from './ListarCita'
 import styled from 'styled-components'
 
 
+
 export const Button = styled.button`
   background: #7579F7;
   border: none;
@@ -173,6 +174,7 @@ let file="";
     </form>
 </div>
 <ListarCita />
+
     </>
     )
 }

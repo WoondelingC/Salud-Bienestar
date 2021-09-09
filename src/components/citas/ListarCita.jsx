@@ -9,6 +9,7 @@ const ListarCita = () => {
     const dispatch = useDispatch()
 
     const handleDelete = (id) => {
+       
        dispatch(Delete(id))
     };
     
@@ -28,7 +29,7 @@ const ListarCita = () => {
                                 <div className="d-flex justify-content-between">
                                     <h4>{data.name}</h4>
                                     <div>
-                                        <i className="material-icons text-danger pointer"
+                                        <i className="material-icons text-danger cursor-pointer"
                                             onClick={() => handleDelete(data.id)}
                                         >
                                             <AiFillDelete />

@@ -90,17 +90,16 @@ export const setCitas = (cita) => {
 //Borrar
 export const Delete = (id) => {
     return async (dispatch) => {
-
+        if (window.confirm("Estas seguro de querer eliminar la cita?")){
         await db.doc(`Cita/${id}`).delete();
         dispatch(deleteCita(id));
-
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Elimando Cita',
-            showConfirmButton: false,
-            timer: 1500
-          })
+        Swal.fire(
+            'Eliminada!',
+            'La Cita se ha eliminado',
+            'success'
+          )
+          }
+      
           dispatch(Listar())
     }
 }

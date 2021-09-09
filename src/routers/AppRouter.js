@@ -1,17 +1,17 @@
 import React from 'react'
 
 
-import Navbar from '../components/citas/Navbar'
+import Navbar from '../components/Navbars/Navbar'
 import {BrowserRouter as Router,
 Switch,
 
 Route} from 'react-router-dom'
 
-import { SearchApp } from '../components/citas/SearchApp'
 import ListarCita from '../components/citas/ListarCita'
 import FormCita from '../components/citas/FormCita'
 import MostrarCita from '../components/citas/MostrarCita'
 import EditCita from '../components/citas/EditCita'
+import Perfil from '../components/Perfil'
 
 const RouterApp = () => {
     return (
@@ -24,7 +24,7 @@ const RouterApp = () => {
         <Route exact path="/listar" component={ListarCita} />
         <Route exact path="/add" component={FormCita} />
         <Route exact path="/inicio" component={MostrarCita} />
-        <Route exact path="/search" component={SearchApp} />
+        <Route exact path="/perfil" component={Perfil} />
         </Switch>
         </Router>
 

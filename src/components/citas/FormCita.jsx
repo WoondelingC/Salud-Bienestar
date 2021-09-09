@@ -5,7 +5,8 @@ import { useForm } from '../../hooks/useForm'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import styled from 'styled-components'
-import logo from '../../assets/Logo.jpeg'
+import PrincipalNav from '../Navbars/PrincipalNav'
+
 export const Input = styled.input`
   background-color: rgba(176, 194, 184, 18);
 `
@@ -213,7 +214,7 @@ hora:Yup.string().required("Hora requerida"),
           
         </form>
         </div>
-        
+        <PrincipalNav />
         </>
     )
 }
