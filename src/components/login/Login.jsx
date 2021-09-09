@@ -1,10 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components'
 import logo from '../../assets/logo.png'
 import { Img } from './Registro';
 import { Button } from './Registro';
 import { A } from './Registro';
 import { Input } from './Registro';
+import { useForm } from '../../hooks/useForm';
+import { login } from '../../actions/actions';
+import { loginGoogle } from '../../actions/actions';
 
 const Google = styled.div`
     border-radius: 50px;
@@ -13,10 +17,27 @@ const Google = styled.div`
 
 
 const Login = () => {
+    const dispatch = useDispatch();
+    
+    const [ values, handleInputChange, reset ] = useForm({
+      email: '',
+      password: ''
+    })
+
+    const { email, password } = values;
+
+    const handleSubmit = (e) =>{
+      e.preventDefault();
+      dispatch(login(email,password));
+    }
+
+    const handleLoginGoogle = () =>{
+        dispatch(loginGoogle());
+    }
     
     return (
       <div className="Registro py-4 container text-center w-25">
-        <form className="form-signin">
+        <form className="form-signin" onChange={handleSubmit}>
           <Img src={logo} alt="" />
           <p className="m-0">Email</p>
           <Input
@@ -26,8 +47,12 @@ const Login = () => {
             className="form-control mb-4"
             placeholder="Email"
             required=""
+            value={email}
+            onChange={handleInputChange}
           />
+
           <p className="m-0">Contraseña</p>
+
           <Input
             type="Password"
             id="inputPassword"
@@ -35,10 +60,12 @@ const Login = () => {
             className="form-control mb-5"
             placeholder="Contraseña"
             required=""
+            value={password}
+            onChange={handleInputChange}
           />
 
           <div class="d-grid gap-2">
-            <Button className="btn btn-primary">
+            <Button className="btn btn-primary" onSubmit={handleSubmit}>
               Ingresar
             </Button>
           </div>
@@ -46,7 +73,7 @@ const Login = () => {
           <div className="text-white">
             <p>Login with social networks</p>
 
-            <Google className="google-btn btn-danger mb-3">
+            <Google className="google-btn btn-danger mb-3" onClick={handleLoginGoogle}>
               <div className="google-icon-wrapper d-flex justify-content-evenly align-items-center">
                 <img
                   className="google-icon"
