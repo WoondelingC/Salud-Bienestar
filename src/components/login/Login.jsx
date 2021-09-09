@@ -15,8 +15,6 @@ import { Link } from 'react-router-dom'
 const Google = styled.div`
     border-radius: 50px;
 `
-  
-
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -39,9 +37,7 @@ const Login = () => {
     
     return (
       <div className="Registro py-4 container text-center w-25">
-        <form className="form-signin" onChange={handleSubmit}>
-          <Img src={logo} alt="" />
-        <form className="form-signin">
+        <form className="form-signin" onSubmit={handleSubmit}>
         <Link to="/Inicio"><Img src={logo} alt="logo" /></Link>
           <p className="m-0">Email</p>
           <Input

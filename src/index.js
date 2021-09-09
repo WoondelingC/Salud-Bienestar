@@ -5,11 +5,12 @@ import { store } from './store/store';
 import Login from './components/login/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import AppRouters from './routers/AppRouters';
 
 
 ReactDOM.render(
   <Provider store={store}>
-    <Login />
+    <AppRouters />
   </Provider> ,
   document.getElementById('root')
 );

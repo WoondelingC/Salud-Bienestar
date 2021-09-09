@@ -7,7 +7,7 @@ export const loginGoogle = ()=>{
         firebase.auth().signInWithPopup(google)
         .then(({user}) =>{
             console.log (user);
-            dispatch(login(user.uid, user.displayname))
+            dispatch(login(user.uid, user.displayName))
         })
     }
 }
@@ -20,5 +20,20 @@ export const login = (id, displayname) => {
             id,
             displayname
         }
+    }
+}
+
+export const registroEmailPasswordNombre = (email, password, name) =>{
+    return(dispatch) =>{
+        firebase.auth().createUserWithEmailAndPassword(email, password, name)
+        .then(async({user})=>{
+            console.log(user);
+            await user .updateProfile({displayName: name})
+
+            dispatch(login(user.uid, user.displayName))
+        })
+        .catch(e =>{
+            console.log(e);
+        })
     }
 }
