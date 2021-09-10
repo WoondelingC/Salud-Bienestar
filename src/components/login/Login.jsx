@@ -20,12 +20,12 @@ const Google = styled.div`
 const Login = () => {
     const dispatch = useDispatch();
     
-    const [ values, handleInputChange, reset ] = useForm({
+    const [ formValue, handleInputChange, reset ] = useForm({
       email: '',
       password: ''
     })
 
-    const { email, password } = values;
+    const { email, password } = formValue;
 
     const handleSubmit = (e) =>{
       e.preventDefault();

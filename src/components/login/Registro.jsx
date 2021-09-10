@@ -7,7 +7,7 @@ import { useForm } from '../../hooks/useForm';
 import { useDispatch } from 'react-redux';
 import { registerWithEmailPasswordName } from '../../actions/actions';
 import { removeError, setError } from '../../actions/uiErrors';
-import validator from 'validator';
+import validator from 'validator'
 
 export const Input = styled.input`
   background-color: rgba(176, 194, 184, 18);
@@ -30,14 +30,14 @@ export const Button = styled.button`
 
 const Registro = () => {
   const dispatch = useDispatch();
-  const [ values, handleInputChange, reset ] = useForm({
+  const [ formValue, handleInputChange, reset ] = useForm({
     name:'',
     email:'',
     password1:'',
     password2:''
   });
 
-  const {name, email, password1, password2} = values;
+  const {name, email, password1, password2} = formValue;
 
   const formValid = () => {
     if (name.trim().length === 0) {
