@@ -1,9 +1,8 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import Login from '../components/login/Login'
+import Registro from '../components/login/Registro'
 
-import Login from '../components/auth/Login'
-import Registro from '../components/auth/Registro'
-import { SearchScreen } from '../components/movies/SearchApp';
 
 export const AuthRouter = () => {
     return (
@@ -12,22 +11,17 @@ export const AuthRouter = () => {
                 <Switch>
                     <Route 
                         exact
-                        path="/auth/login"
+                        path="/login"
                         component={ Login }
                     />
 
                     <Route 
                         exact
-                        path="/auth/register"
+                        path="/register"
                         component={ Registro }
                     />
-                     <Route 
-                        exact
-                        path="search"
-                        component={ SearchScreen }
-                    />
 
-                    <Redirect to="/auth/login" />
+                    <Redirect to="/login" />
 
                 </Switch>
             </div>

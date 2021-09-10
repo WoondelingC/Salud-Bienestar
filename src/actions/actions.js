@@ -63,12 +63,12 @@ export const loginGoogle = ()=>{
     }
 }
 
-export const login = (id, displayname) => {
+export const login = (uid, displayname) => {
 
     return{
         type: types.login,
         payload:{
-            id,
+            uid,
             displayname
         }
     }

@@ -1,10 +1,14 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import '../../style/style.css';
 
 
 export const Navbar = () => {
+    
+    const { name } = useSelector((state) => state.auth);
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,6 +32,9 @@ export const Navbar = () => {
                             <li class="nav-item">
                                 <Link class="nav-link" to='/Login'>Ingresar</Link>
                             </li>
+
+                            <li className="text-danger d-flex">{name}</li>
+
                         </ul>
                     </div>
                 </div>

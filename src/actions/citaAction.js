@@ -1,4 +1,4 @@
-import { db } from '../firebase/firebase-config'
+import { db } from '../firebase/firebaseConfig'
 import {types} from '../types/types'
 import Swal from 'sweetalert2'
 import {load} from '../helpers/load '
@@ -73,9 +73,9 @@ export const addNewCita = (cita ) => ({
 
 //Listar los datos
 
-export const Listar = () => {
+export const Listar = (uid) => {
     return async (dispatch) =>{
-        const citaList =  await load()
+        const citaList =  await load(uid)
         dispatch(setCitas(citaList))
     }
 }

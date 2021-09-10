@@ -1,4 +1,4 @@
-import { db } from '../firebase/firebase-config'
+import { db } from '../firebase/firebaseConfig'
 
 export const load = async (uid) => {
 

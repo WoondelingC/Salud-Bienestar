@@ -38,7 +38,7 @@ const Login = () => {
     
     return (
       <div className="Registro py-4 container text-center w-25">
-        <form className="form-signin" onSubmit={handleSubmit}>
+        <form className="form-signin">
         <Link to="/Inicio"><Img src={logo} alt="logo" /></Link>
           <p className="m-0">Email</p>
           <Input
