@@ -9,6 +9,7 @@ import { Input } from './Registro';
 import { useForm } from '../../hooks/useForm';
 import { login } from '../../actions/actions';
 import { loginGoogle } from '../../actions/actions';
+import { loginEmailPassword } from '../../actions/actions';
 import { Link } from 'react-router-dom'
 
 
@@ -28,7 +29,7 @@ const Login = () => {
 
     const handleSubmit = (e) =>{
       e.preventDefault();
-      dispatch(login(email,password));
+      dispatch(loginEmailPassword(email,password));
     }
 
     const handleLoginGoogle = () =>{
@@ -86,7 +87,7 @@ const Login = () => {
               </div>
               
             </Google>
-            <p className="text-dark">¿Aún no tienes cuenta? <Link to="/Registro">Registrate</Link> </p>
+            <p className="text-dark">¿Aún no tienes cuenta? <Link to="/registro">Registrate</Link> </p>
             <p className="text-dark">¿Olvidaste la contraseña?</p>
           </div>
         </form>

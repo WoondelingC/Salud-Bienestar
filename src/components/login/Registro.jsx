@@ -4,8 +4,10 @@ import styled from 'styled-components';
 import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
-import { registroEmailPasswordNombre } from '../../actions/actions';
 import { useDispatch } from 'react-redux';
+import { registerWithEmailPasswordName } from '../../actions/actions';
+import { removeError, setError } from '../../actions/uiErrors';
+import validator from 'validator';
 
 export const Input = styled.input`
   background-color: rgba(176, 194, 184, 18);
@@ -32,14 +34,37 @@ const Registro = () => {
     name:'',
     email:'',
     password1:'',
-    fechaDeNacimiento:''
+    password2:''
   });
 
-  const {name, email, password1, fechaDeNacimiento} = values;
+  const {name, email, password1, password2} = values;
+
+  const formValid = () => {
+    if (name.trim().length === 0) {
+        dispatch(setError('nombre requerido'))
+        return false
+    }
+    else if (!validator.isEmail(email)) {
+        dispatch(setError('Email requerido'))
+        return false
+    }
+    else if (password1 !== password2 || password1 < 5) {
+        dispatch(setError('La contraseña es incorecta'))
+        return false
+    }
+
+    dispatch(removeError(''))
+    return true
+}
 
   const handleRegistro = (e) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+
+    if (formValid()) {
+        dispatch(registerWithEmailPasswordName(email, password1, name))
+    }
+    reset()
+}
 
   return (
 
@@ -54,33 +79,39 @@ const Registro = () => {
           <div className="input-group mb-3">
 
             <Input type="text" className="form-control mb-2" placeholder="Nombre de Usuario" aria-label="Username" aria-describedby="basic-addon1"
+            name="name"
             value = {name}
             onChange= {handleInputChange} />
           </div>
 
           <p className="m-0" >Ingrese tu correo electronico</p>
           <div className="input-group mb-2">
-            <Input type="text" className="form-control mb-2" placeholder="correo electronico" aria-label="Recipient's username" aria-describedby="basic-addon2"
+            <Input type="email" className="form-control mb-2" placeholder="correo electronico" aria-label="Recipient's username" aria-describedby="basic-addon2"
+            name="email"
+            value={email}
+            onChange={handleInputChange}
           />
           </div>
 
           <label for="basic-url" className="form-label text-start">Ingresa tu contraseña</label>
           <div className="input-group mb-3">
-            <Input type="password1" className="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="contraseña"
-            value = {name}
+            <Input type="password" className="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="contraseña"
+            name="password1"
+            value = {password1}
             onChange= {handleInputChange} />
           </div>
-          <p className="m-0" >Fecha de nacimiento</p>
+          <p className="m-0">Repita su contraseña</p>
           <div className="input-group mb-3">
-            <Input type="date" className="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Ingrese su fecha de nacimiento"
-            value={fechaDeNacimiento}
+            <Input type="password" className="form-control" aria-label="Amount (to the nearest dollar)" placeholder="repita su contraseña"
+            name="password2"
+            value={password2}
             onChange={handleInputChange} />
           </div>
           <div class="d-grid gap-2">
-            <Button className="btn btn-primary mb-3">Registrarse</Button>
+            <Button className="btn btn-primary mb-3" type="submit">Registrarse</Button>
           </div>
         </form>
-        <p>¿ Ya tienes cuenta ? <Link to="/Login">Iniciar Sesión</Link></p>
+        <p>¿ Ya tienes cuenta ? <Link to="/login">Iniciar Sesión</Link></p>
       </div>
 
   )
