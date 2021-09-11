@@ -45,7 +45,7 @@ const Navbar = () => {
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <Link class="nav-link active" aria-current="page" to="/">
+                  <Link class="nav-link active" aria-current="page" to="/Inicio">
                     Inicio
                   </Link>
                 </li>
@@ -58,13 +58,20 @@ const Navbar = () => {
                   <Link class="nav-link" to="/add">Agendar Cita</Link>
                  
                 </li>
+                <li class="nav-item">
+                  <Link class="nav-link" to="/listar">Control de Cita</Link>
+                 
+                </li>
 
                 <li className="nav-item">
                   <Link class="nav-link" to="/edit/:id">
                     Actualizar Cita
                   </Link>
-                  <Link class="nav-link" to="/">
+                  <Link class="nav-link" to="/Tips">
                     Tips de Salud
+                  </Link>
+                  <Link class="nav-link" to="Servicios">
+                    Servicios
                   </Link>
                 </li>
                 </ul>

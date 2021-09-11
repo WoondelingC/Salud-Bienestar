@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { db } from '../firebase/firebase-config';
+import { db } from '../../firebase/firebase-config';
 
 import allMovies from 'data.json'
 import ListarDog from './ListarDog';
 import { Dog } from './Dog';
-import NavApp from './NavApp';
+import NavApp from '../Navbars/Navbar';
 const Movies = () => { 
     const [movies, setmovies] = useState(db.doc(`/Dog/`).get);
   

@@ -17,16 +17,18 @@ const ListarCita = () => {
         dispatch(activeCita(data))
         console.log('editar')
     }
-    
+   
 
     return (
         <>
             {
+                
                 cita.map((data,index) => (
                     <div className="col-md-4 ms-5" key={`${index}-${data.id}`}>
                         <div className="card mb-1" >
                             <div className="card-body">
                                 <div className="d-flex justify-content-between">
+                                <h1>Control de Citas</h1>
                                     <h4>{data.name}</h4>
                                     <div>
                                         <i className="material-icons text-danger cursor-pointer"
@@ -41,11 +43,14 @@ const ListarCita = () => {
                                         </Link>
                                     </div>
                                 </div>
-                                <p>{data.nombre}</p>
-                                <p>{data.email}</p>
-                                <p>{data.categoria}</p>
-                                <p>{data.fecha}</p>
-                                <p>{data.hora}</p>
+                                <p>Nombre Completo: {data.nombre}</p>
+                                <p>Correo Electronico: {data.email}</p>
+                                <p>Tipo de Cita {data.categoria}</p>
+                                <p>Fecha: {data.fecha}</p>
+                                <p>Hora: {data.hora}
+
+
+                             </p>
                                 
                             </div>
                         </div>

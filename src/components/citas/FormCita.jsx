@@ -163,13 +163,13 @@ hora:Yup.string().required("Hora requerida"),
           
              <input name="categoria" type="radio" className="form-check-input" id="general" value="Medicina General"
                   onChange={formik.handleChange} />
-             <label className="form-check-label" for="general"> Medicina General</label>
+             <label className="form-check-label" htmlFor="general"> Medicina General</label>
         </div>
         <div className="form-check">
 
         <input name="categoria" type="radio" className="form-check-input" id="especialista"  value="Especialista"
                   onChange={formik.handleChange} />
-        <label className="form-check-label" for="especialista" >Especialista</label>
+        <label className="form-check-label" htmlFor="especialista" >Especialista</label>
                   
             </div>             
      {formik.errors.categoria ?<div className="text-danger">{formik.errors.categoria}</div> : null}
