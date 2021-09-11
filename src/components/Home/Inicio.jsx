@@ -42,11 +42,11 @@ export const Inicio = () => {
                         <img src={iconTwo} alt="Ejercicio" />
                     </div>
                     <div class="g-col-4">
-                        <h2>Paz mental</h2>
+                        <h2>Tu <br/>Paz mental</h2>
                         <img src={iconThree} alt="Paz-mental" />
                     </div>
                     <div class="g-col-4">
-                        <h2>Tu descanso</h2>
+                        <h2>Tu <br/>descanso</h2>
                         <img src={iconFour} alt="Descanso" />
                     </div>
                 </div>

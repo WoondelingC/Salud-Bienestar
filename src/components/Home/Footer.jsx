@@ -12,9 +12,9 @@ export const Footer = () => {
         <h2 id="title-footer"><img src={logo}/></h2>
         <span>Hecho por Diana, Woonderling , José . Copyright 2021 - Todos los derechos reservados.</span>
         <ul>
-            <li><a href="https://github.com/WoondelingC/Salud-Bienestar.git"><img src={github} id="img-footer"/></a></li>
-            <li><a href="https://www.instagram.com/laacademiageek/"><img src={instagram} id="img-footer"/></a></li>
-            <li><a href="https://twitter.com/geek_colombia"><img src={twitter} id="img-footer"/></a></li>
+            <li><a href="https://github.com/WoondelingC/Salud-Bienestar.git"><img src={github} id="img-footer" alt="icono-github"/></a></li>
+            <li><a href="https://www.instagram.com/laacademiageek/"><img src={instagram} id="img-footer" alt="icono-instagram"/></a></li>
+            <li><a href="https://twitter.com/geek_colombia"><img src={twitter} id="img-footer" alt="icono-twitter"/></a></li>
         </ul>
 
         </footer>
