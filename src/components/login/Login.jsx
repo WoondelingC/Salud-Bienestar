@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import logo from '../../assets/logo.png'
 import { Img } from './Registro';
 import { Button } from './Registro';
-import { A } from './Registro';
+
 import { Input } from './Registro';
 
 import { Link } from "react-router-dom";
@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import { startFacebookLogin, startGoogleLogin, startLoginEmailPassword } from "../../actions/auth";
+import { startFacebookLogin, startGoogleLogin, startLoginEmailPassword } from "../../actions/authAction";
 
 
 
