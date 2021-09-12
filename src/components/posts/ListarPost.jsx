@@ -1,10 +1,10 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import {Delete, activeCita} from '../../actions/citaAction'
+import {Delete, postActive} from '../../actions/postAction'
 import {AiFillEdit,AiFillDelete} from 'react-icons/all'
-const ListarCita = () => {
-    const { cita } = useSelector(state => state.cita)
+const ListarPost = () => {
+    const { post } = useSelector(state => state.post)
 
     const dispatch = useDispatch()
 
@@ -14,7 +14,7 @@ const ListarCita = () => {
     };
     
     const handleEdit = (data) => {
-        dispatch(activeCita(data))
+        dispatch(postActive(data))
         console.log('editar')
     }
    
@@ -23,13 +23,13 @@ const ListarCita = () => {
         <>
             {
                 
-                cita.map((data,index) => (
+                post.map((data,index) => (
                     <div className="col-md-4 ms-5" key={`${index}-${data.id}`}>
                         <div className="card mb-1" >
                             <div className="card-body">
                                 <div className="d-flex justify-content-between">
-                                <h1>Control de Citas</h1>
-                                    <h4>{data.name}</h4>
+                                <h1>Publicaciones</h1>
+                                    
                                     <div>
                                         <i className="material-icons text-danger cursor-pointer"
                                             onClick={() => handleDelete(data.id)}
@@ -37,20 +37,20 @@ const ListarCita = () => {
                                             <AiFillDelete />
                                         </i>
                                         <Link  onClick={() => handleEdit(data)}
-                to={`/edit/${data.id}`}
+                to={`/editpost/${data.id}`}
                 > 
                                         <AiFillEdit />
                                         </Link>
                                     </div>
                                 </div>
-                                <p>Nombre Completo: {data.nombre}</p>
-                                <p>Correo Electronico: {data.email}</p>
-                                <p>Tipo de Cita {data.categoria}</p>
-                                <p>Fecha: {data.fecha}</p>
-                                <p>Hora: { data.hora && data.hora>12 ? `${data.hora + 'PM'}` : `${data.hora + 'AM'}` }
+                                <p>Titulo de la Publicación: {data.title}</p>
+                                <p>Categoria: {data.categoria}</p>
+                                <p>post {data.posts}</p>
+                                <p>Imagen: <img className="img-fluid" src={data.urlImg} alt ={data.title} /></p>
+                                {console.log(data.title)}
 
 
-                             </p>
+                           
                                 
                             </div>
                         </div>
@@ -63,4 +63,4 @@ const ListarCita = () => {
     )
 }
 
-export default ListarCita
+export default ListarPost

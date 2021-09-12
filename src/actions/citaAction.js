@@ -1,7 +1,7 @@
 import { db } from '../firebase/firebase-config'
 import {types} from '../types/types'
 import Swal from 'sweetalert2'
-import {load} from '../helpers/load '
+import { load } from '../helpers/load '
 import  {fileUpload} from '../helpers/fileUpload'
 let fileUrl=[]
 //Crear los datos

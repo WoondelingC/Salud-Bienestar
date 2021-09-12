@@ -5,7 +5,14 @@ import { Img } from './Registro';
 import { Button } from './Registro';
 import { A } from './Registro';
 import { Input } from './Registro';
-import { Link } from 'react-router-dom'
+
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+
+import { startFacebookLogin, startGoogleLogin, startLoginEmailPassword } from "../../actions/auth";
+
 
 
 const Google = styled.div`
@@ -15,7 +22,39 @@ const Google = styled.div`
 
 
 const Login = () => {
-    
+  const dispatch = useDispatch();
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      email: Yup
+        .string()
+        .email("Invalid email address")
+        .required("Email required"),
+      password: Yup
+        .string()
+        .min(8, "La contraseña es muy corta - debe tener minimo 8 caracteres.")
+        .matches(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S/, "La contraseña debe tener un numero, una mayuscula y un minuscula.")
+        .required("Excribe tu contraseña."),
+    }),
+    onSubmit: () => {
+
+      dispatch(startLoginEmailPassword(email, password));
+        
+    },
+  });
+
+  const { email, password } = formik.values;
+
+  const handleGoogleLogin = () => {
+    dispatch(startGoogleLogin());
+  };
+  const handleFacebookLogin = () => {
+    dispatch(startFacebookLogin());
+  };
     return (
       <div className="Registro py-4 container text-center w-25">
         <form className="form-signin">
