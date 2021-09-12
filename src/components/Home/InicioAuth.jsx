@@ -10,20 +10,14 @@ import iconSix from '../../assets/equipo-medico.png'
 import iconSeven from '../../assets/2913008.png'
 import contacto from '../../assets/contacto.png'
 import '../../style/style.css'
-
 /*COMPONENTES*/
-import { NavbarH } from './NavbarH'
+import Navbar from '../Navbars/Navbar'
 import { Footer } from './Footer'
-import { Slider } from './Slider'
 
-export const Inicio = () => {
+export const InicioAuth = () => {
     return (
         <div className="container-fluid">
-            <NavbarH />
-
-            <header>
-                <Slider />
-            </header>
+            <Navbar />
 
             <div className="container__Agendar-cita">
                 <div className="container__Agendar-cita--titleImg">

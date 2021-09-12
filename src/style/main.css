@@ -1,7 +1,12 @@
 .profile{
     display: -webkit-inline-box;
 }
-
 .content{
     height: 79vh;
+}
+.cita{
+    background-color: rgb(7, 255, 7);
+}
+.div{
+    height: 25px;
 }

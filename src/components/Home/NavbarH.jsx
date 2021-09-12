@@ -1,8 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { startLogout } from "../../actions/actions";
 import logo from "../../assets/logo.png";
 import "../../style/style.css";
 
