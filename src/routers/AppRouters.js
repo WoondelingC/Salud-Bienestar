@@ -1,21 +1,29 @@
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { Inicio } from "../components/Home/Inicio";
-import { Servicios } from "../components/Servicios/Servicios";
-import { Tips } from "../components/Servicios/Tips";
-import Registro from "../components/login/Registro";
-import { login } from "../actions/actions";
+
+/*FUNCIONAMIENTOS*/
 import { firebase } from "../firebase/firebaseConfig";
 import { useDispatch } from "react-redux";
+import { login } from "../actions/actions";
+
+/*RUTAS*/
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { PublicRoute } from "./PublicRoute";
 import { AuthRouter } from "./AuthRouter";
 import { PrivateRoute } from "./PrivateRoute";
+import { Inicio } from "../components/Home/Inicio";
+import { Servicios } from "../components/Servicios/Servicios";
+import { Tips } from "../components/Servicios/Tips";
+import { InicioAuth } from '../components/Home/InicioAuth'
+import Login from "../components/login/Login";
+import Olvido from "../components/login/Olvido";
+import Registro from "../components/login/Registro";
 import Loading from "../components/Loading";
 import { Listar } from "../actions/citaAction";
 import ListarCita from "../components/Citas/ListarCita";
-import Login from "../components/login/Login";
-import Olvido from "../components/login/Olvido";
-import {InicioAuth} from '../components/Home/InicioAuth'
+import Perfil from "../components/Perfil";
+import FormCita from "../components/Citas/FormCita";
+import EditCita from "../components/Citas/EditCita";
+import { Historial } from "../components/Historial";
 
 export const AppRouters = () => {
   const [checking, setChecking] = useState(true);
@@ -26,7 +34,7 @@ export const AppRouters = () => {
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
       if (user?.uid) {
-        dispatch(login(user.uid, user.displayName));
+        dispatch(login(user.uid, user.displayName, user.email, user.photoURL));
         setsIsLoogedIn(true);
         dispatch(Listar(user.uid));
       } else {
@@ -49,6 +57,7 @@ export const AppRouters = () => {
           isAuthenticated={isLooggedIn}
         />
 
+        {/*RUTAS PUBLICAS*/}
         <PublicRoute exact path="/inicio" component={Inicio} />
 
         <PublicRoute exact path="/auth/Servicios" component={Servicios} />
@@ -56,11 +65,12 @@ export const AppRouters = () => {
         <PublicRoute exact path="/auth/Tips" component={Tips} />
 
         <PublicRoute exact path="/auth/login" component={Login} />
-        
+
         <PublicRoute exact path="/auth/registro" component={Registro} />
 
         <PublicRoute exact path="/auth/olvido" component={Olvido} />
 
+        {/*RUTAS PRIVADAS*/}
         <PrivateRoute
           exact
           path="/"
@@ -70,8 +80,29 @@ export const AppRouters = () => {
 
         <PrivateRoute
           exact
-          path="/listarCita"
+          path="/perfil"
+          component={Perfil}
+          isAuthenticated={isLooggedIn}
+        />
+
+        <PrivateRoute
+          exact
+          path="/listar"
           component={ListarCita}
+          isAuthenticated={isLooggedIn}
+        />
+
+        <PrivateRoute
+          exact
+          path="/agendar"
+          component={FormCita}
+          isAuthenticated={isLooggedIn}
+        />
+
+        <PrivateRoute
+          exact
+          path="/editar/:id"
+          component={EditCita}
           isAuthenticated={isLooggedIn}
         />
 
@@ -81,22 +112,26 @@ export const AppRouters = () => {
           component={Tips}
           isAuthenticated={isLooggedIn}
         />
-        
+
         <PrivateRoute
           exact
           path="/Servicios"
           component={Servicios}
           isAuthenticated={isLooggedIn}
         />
+        <PrivateRoute
+          exact
+          path="/Historial"
+          component={Historial}
+          isAuthenticated={isLooggedIn}
+        />
 
         <Route
-        component={(props)=>((isLooggedIn)
-            ?(<Redirect to="/"  />)
-            :(<Redirect to="/inicio" />))}
+          component={() =>
+            isLooggedIn ? <Redirect to="/" /> : <Redirect to="/inicio" />
+          }
         />
       </Switch>
-      
-
     </BrowserRouter>
   );
 };

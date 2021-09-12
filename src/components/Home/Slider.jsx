@@ -11,17 +11,17 @@ export const Slider = () => {
             <div className="carousel-inner">
                 <div className="carousel-item active">
                     <div>
-                    <img src={imgHeader} className="d-block w-100" alt="..."/>
-                    <h2 id="itemOne-title">¡El mejor servicio a tu disposición!</h2>
-                    <p id="item-p">¿No tienes cuenta aún?</p>
-                    <Link to="/auth/registro" id="item-button">Registrate</Link>
+                        <img src={imgHeader} className="d-block w-100" alt="..." />
+                        <h2 id="itemOne-title">¡El mejor servicio a tu disposición!</h2>
+                        <p id="item-p">¿No tienes cuenta aún?</p>
+                        <Link to="/auth/registro" id="item-button">Registrate</Link>
                     </div>
                 </div>
                 <div className="carousel-item">
-                    <img src={imgHeadertwo} className="d-block w-100" alt="..."/>
+                    <img src={imgHeadertwo} className="d-block w-100" alt="..." />
                 </div>
                 <div className="carousel-item">
-                    <img src={imgHeaderThree} className="d-block w-100" alt="..."/>
+                    <img src={imgHeaderThree} className="d-block w-100" alt="..." />
                 </div>
             </div>
             <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

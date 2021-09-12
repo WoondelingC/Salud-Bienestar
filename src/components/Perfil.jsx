@@ -4,37 +4,40 @@ import styled from 'styled-components'
 import plus from '../assets/anadir.png'
 import '../style/main.css'
 import Navbar from './Navbars/Navbar'
-import PrincipalNav from './Navbars/PrincipalNav'
+import { useSelector } from 'react-redux'
+
 
 const User = styled.img`
-    width: 45%;
-    height: 30%;
+    width: 20%;
+    height: 20%;
     border-radius: 50%;
 `
 
 const Perfil = () => {
+    const { name, email, image } = useSelector((state) => state.auth);
+
     return (
         <>
         <Navbar/>
-        <div className="container text-center py-5 w-25 content">
+        <div className="container text-center py-2 w-50 content">
             
             <h3 className="mb-5">Perfil</h3>
-            <div className="mt-5 d-flex align-items-center">
-                <User src={user} alt="user" className="me-3" />
+            <div className="mt-5 d-flex align-items-center justify-content-center">
+                <User src={image} alt="user" className="me-3" />
              <div>
-                <p>Nombre</p>
-                <p>Correo</p>
+                <p>{name}</p>
+                <p>{email}</p>
                 <p>Fecha</p>
                 </div>   
             </div>
 
-            <div className="mt-5 text-start ms-4">
-                <div className="mb-4 profile">
+            <div className="mt-5 text-center d-flex flex-column align-items-center">
+                <div className="mb-4 profile me-4">
                     <img src={plus} alt="" className="me-3" />
                     <p className="fs-6 fw-bold">Citas Medicas</p>
                 </div>
 
-                <div className="profile">
+                <div className="profile ms-2">
                     <img src={plus} alt="" className="me-3" />
                     <p className="fs-6 fw-bold">Diagnóstico médico</p>
                 </div>
@@ -43,7 +46,7 @@ const Perfil = () => {
                 
             </div>
         </div>
-        <PrincipalNav />
+        
         </>
     )
 }

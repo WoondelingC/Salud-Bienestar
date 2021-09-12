@@ -1,8 +1,4 @@
-<<<<<<< 
 git branch -d# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-=======
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
->>>>>>> 5f1c7fdd3ee31a1f593dbb023b9dd4213c7a74af
 
 # dependencies
 /node_modules
