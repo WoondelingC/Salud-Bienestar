@@ -14,7 +14,7 @@ const Nav = styled.div`
 
 const PrincipalNav = () => {
     return (
-        <Nav className="container w-25 py-2">
+        <Nav className="container py-2">
             <div className="row d-flex justify-content-between">
                 <Logos src={homeN} alt="home" />
                 <Logos src={calendario} alt="agenda" />

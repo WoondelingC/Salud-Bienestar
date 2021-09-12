@@ -15,7 +15,8 @@ import { Listar } from "../actions/citaAction";
 import ListarCita from "../components/Citas/ListarCita";
 import Login from "../components/login/Login";
 import Olvido from "../components/login/Olvido";
-import {InicioAuth} from '../components/Home/InicioAuth'
+import { InicioAuth } from "../components/Home/InicioAuth";
+import Perfil from "../components/Perfil";
 
 export const AppRouters = () => {
   const [checking, setChecking] = useState(true);
@@ -26,7 +27,7 @@ export const AppRouters = () => {
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
       if (user?.uid) {
-        dispatch(login(user.uid, user.displayName));
+        dispatch(login(user.uid, user.displayName, user.email, user.photoURL));
         setsIsLoogedIn(true);
         dispatch(Listar(user.uid));
       } else {
@@ -56,7 +57,7 @@ export const AppRouters = () => {
         <PublicRoute exact path="/auth/Tips" component={Tips} />
 
         <PublicRoute exact path="/auth/login" component={Login} />
-        
+
         <PublicRoute exact path="/auth/registro" component={Registro} />
 
         <PublicRoute exact path="/auth/olvido" component={Olvido} />
@@ -65,6 +66,13 @@ export const AppRouters = () => {
           exact
           path="/"
           component={InicioAuth}
+          isAuthenticated={isLooggedIn}
+        />
+
+        <PrivateRoute
+          exact
+          path="/perfil"
+          component={Perfil}
           isAuthenticated={isLooggedIn}
         />
 
@@ -81,7 +89,7 @@ export const AppRouters = () => {
           component={Tips}
           isAuthenticated={isLooggedIn}
         />
-        
+
         <PrivateRoute
           exact
           path="/Servicios"
@@ -90,13 +98,11 @@ export const AppRouters = () => {
         />
 
         <Route
-        component={(props)=>((isLooggedIn)
-            ?(<Redirect to="/"  />)
-            :(<Redirect to="/inicio" />))}
+          component={(props) =>
+            isLooggedIn ? <Redirect to="/" /> : <Redirect to="/inicio" />
+          }
         />
       </Switch>
-      
-
     </BrowserRouter>
   );
 };

@@ -5,9 +5,14 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { startLogout } from "../../actions/actions";
 
-const Logo = styled.img`
+export const Logo = styled.img`
+  width: 150px;
+  height: 70px;
+  padding:0;
+`
+export const Ham = styled.button`
+  height: 70px;
   width: 100px;
-  height: 50px;
 `
 
 const Navbar = () => {
@@ -15,13 +20,16 @@ const Navbar = () => {
   const { name } = useSelector((state) => state.auth);
 
   return (
-    <div className="container p-0 mt-2">
-      <nav className="navbar navbar-light bg-light">
-        <div>
+    <div className="mt-2" >
+      <nav className="navbar navbar-light bg-light d-flex justify.content-between">
+        
           <a className="navbar-brand" href="/">
             <Logo src={logo} alt="" />
           </a>
-          <button
+          
+
+          <div>
+          <Ham
             className="navbar-toggler"
             type="button"
             data-bs-toggle="offcanvas"
@@ -29,10 +37,11 @@ const Navbar = () => {
             aria-controls="offcanvasNavbar"
           >
             <span className="navbar-toggler-icon"></span>
-          </button>
+          </Ham>
           <div
             className="offcanvas offcanvas-end"
-            tabindex="-1"
+            
+            
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
           >
