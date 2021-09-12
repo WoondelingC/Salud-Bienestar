@@ -2,6 +2,8 @@ import React from "react";
 import logo from '../../assets/logo.png'
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { startLogout } from "../../actions/actions";
 
 const Logo = styled.img`
   width: 100px;
@@ -9,10 +11,13 @@ const Logo = styled.img`
 `
 
 const Navbar = () => {
+  const dispatch = useDispatch()
+  const { name } = useSelector((state) => state.auth);
+
   return (
-    <div classNameName="container w-25 p-0 mt-2">
+    <div className="container p-0 mt-2">
       <nav className="navbar navbar-light bg-light">
-        <div className="container">
+        <div>
           <a className="navbar-brand" href="/">
             <Logo src={logo} alt="" />
           </a>
@@ -45,26 +50,43 @@ const Navbar = () => {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                  <Link className="nav-link active" aria-current="page" to="/inicio">
+                  <Link className="nav-link active" aria-current="page" to="/">
                     Inicio
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link classNameName="nav-Link" to='/perfil'>
+                  <Link className="nav-Link" to='/perfil'>
                     Perfil
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">
+                  <Link className="nav-link" to="/agendar">
                     Agendar Cita
                   </Link>
                 </li>
 
-                <li classNameName="nav-item">
+                <li className="nav-item">
                   <Link className="nav-link" to="/Tips">
                     Tips de Salud
                   </Link>
                 </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link" to="/Servicios">
+                    Servicios
+                  </Link>
+                </li>
+
+                <li className="text-danger d-flex">{name}</li>
+
+                <Link to="/inicio">
+                <li
+                  onClick={() => dispatch(startLogout())}
+                >
+                  Cerrar Sesion
+                </li>
+              </Link>
+
                 </ul>
             </div>
           </div>

@@ -1,31 +1,29 @@
-import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import Login from '../components/login/Login'
-import Registro from '../components/login/Registro'
-
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import Login from "../components/login/Login";
+import Olvido from "../components/login/Olvido";
+import Registro from "../components/login/Registro";
+import { Servicios } from "../components/Servicios/Servicios";
+import {Tips} from '../components/Servicios/Tips'
 
 export const AuthRouter = () => {
-    return (
-        <div className="auth__main">
-            <div className="auth__box-container">
-                <Switch>
-                    <Route 
-                        exact
-                        path="/login"
-                        component={ Login }
-                    />
+  return (
+    <div className="auth__main">
+      <div>
+        <Switch>
+          <Route exact path="/auth/login" component={Login} />
 
-                    <Route 
-                        exact
-                        path="/register"
-                        component={ Registro }
-                    />
+          <Route exact path="/auth/registro" component={Registro} />
 
-                    <Redirect to="/login" />
+          <Route exact path="/auth/olvido" component={Olvido} />
 
-                </Switch>
-            </div>
+          <Route exact path="/auth/Servicios" component={Servicios} />
 
-        </div>
-    )
-}
+          <Route exact path="/auth/Tips" component={Tips} />
+
+          <Redirect to="/inicio" />
+        </Switch>
+      </div>
+    </div>
+  );
+};

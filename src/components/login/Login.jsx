@@ -4,12 +4,9 @@ import styled from 'styled-components'
 import logo from '../../assets/logo.png'
 import { Img } from './Registro';
 import { Button } from './Registro';
-import { A } from './Registro';
 import { Input } from './Registro';
 import { useForm } from '../../hooks/useForm';
-import { login } from '../../actions/actions';
-import { loginGoogle } from '../../actions/actions';
-import { loginEmailPassword } from '../../actions/actions';
+import { startGoogleLogin, startLoginEmailPassword } from '../../actions/actions'
 import { Link } from 'react-router-dom'
 
 
@@ -29,17 +26,17 @@ const Login = () => {
 
     const handleSubmit = (e) =>{
       e.preventDefault();
-      dispatch(loginEmailPassword(email,password));
+      dispatch(startLoginEmailPassword(email,password));
     }
 
     const handleLoginGoogle = () =>{
-        dispatch(loginGoogle());
+        dispatch(startGoogleLogin());
     }
     
     return (
       <div className="Registro py-4 container text-center w-25">
         <form className="form-signin">
-        <Link to="/Inicio"><Img src={logo} alt="logo" /></Link>
+        <Link to="/"><Img src={logo} alt="logo" /></Link>
           <p className="m-0">Email</p>
           <Input
             type="email"
@@ -65,8 +62,8 @@ const Login = () => {
             onChange={handleInputChange}
           />
 
-          <div class="d-grid gap-2">
-            <Button className="btn btn-primary" onSubmit={handleSubmit}>
+          <div className="d-grid gap-2">
+            <Button className="btn btn-primary" onClick={handleSubmit}>
               Ingresar
             </Button>
           </div>
@@ -87,8 +84,8 @@ const Login = () => {
               </div>
               
             </Google>
-            <p className="text-dark">¿Aún no tienes cuenta? <Link to="/registro">Registrate</Link> </p>
-            <p className="text-dark">¿Olvidaste la contraseña?</p>
+            <p className="text-dark">¿Aún no tienes cuenta? <Link to="/auth/registro">Registrate</Link> </p>
+            <p className="text-dark"><Link to="/auth/olvido">¿Olvidaste la contraseña?</Link></p>
           </div>
         </form>
       </div>

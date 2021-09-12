@@ -80,13 +80,13 @@ return (
                 value={email}
             />
             <label>¿Que desea Agendar?</label>
-            <label for="general"> Medicina General</label>
-    <input name="categoria" type="radio" class="input-radio"  id="general" value="Medicina General"
+            <label> Medicina General</label>
+    <input name="categoria" type="radio" className="input-radio"  id="general" value="Medicina General"
                 onChange={actualizarState}  />
 
 
-<label for="especialista" >Especialista</label>
-    <input name="categoria" type="radio" class="input-radio" id="especialista"  value="Especialista"
+<label>Especialista</label>
+    <input name="categoria" type="radio" className="input-radio" id="especialista"  value="Especialista"
                 onChange={actualizarState} />
           
                

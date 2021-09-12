@@ -12,7 +12,7 @@ const NavApp = ({searchMovie}) => {
   <div ClassName="collapse navbar-collapse" id="navbarSupportedContent">
     <ul ClassName="navbar-nav mr-auto">
       <li ClassName="nav-item active">
-        <Link ClassName="nav-link" to="/inicio">Inicio </Link>
+        <Link ClassName="nav-link" to="/">Inicio </Link>
       </li>
       <li ClassName="nav-item">
         <Link ClassName="nav-link" to="/add">Agendar Citas</Link>

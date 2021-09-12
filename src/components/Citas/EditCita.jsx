@@ -1,7 +1,7 @@
 import React, { useEffect, useRef }  from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {  Edit, Listar, startUploading } from '../actions/citaAction'
-import { useForm } from '../hooks/useForm'
+import {  Edit, Listar, startUploading } from '../../actions/citaAction'
+import { useForm } from '../../hooks/useForm'
 import ListarCita from './ListarCita'
 
 const EditCita = () => {
@@ -102,13 +102,13 @@ let file="";
             />
               
                <label>¿Que desea Agendar?</label>
-            <label for="general"> Medicina General</label>
-    <input name="categoria" type="radio" class="input-radio"  id="general" value="Medicina General"
+            <label> Medicina General</label>
+    <input name="categoria" type="radio" className="input-radio"  id="general" value="Medicina General"
                 onChange={handleInputChange}  />
 
 
-<label for="especialista" >Especialista</label>
-    <input name="categoria" type="radio" class="input-radio" id="especialista"  value="Especialista"
+<label>Especialista</label>
+    <input name="categoria" type="radio" className="input-radio" id="especialista"  value="Especialista"
                 onChange={handleInputChange} />
           
                

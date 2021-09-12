@@ -5,7 +5,7 @@ import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useDispatch } from 'react-redux';
-import { registerWithEmailPasswordName } from '../../actions/actions';
+import { startRegisterWithEmailPasswordName } from '../../actions/actions';
 import { removeError, setError } from '../../actions/uiErrors';
 import validator from 'validator'
 
@@ -61,7 +61,7 @@ const Registro = () => {
     e.preventDefault();
 
     if (formValid()) {
-        dispatch(registerWithEmailPasswordName(email, password1, name))
+        dispatch(startRegisterWithEmailPasswordName(email, password1, name))
     }
     reset()
 }
@@ -74,7 +74,7 @@ const Registro = () => {
         onSubmit={handleRegistro}
         >
 
-          <Link to="/Inicio"><Img src={logo} alt="logo" /></Link>
+          <Link to="/"><Img src={logo} alt="logo" /></Link>
           <p className="m-0" >Ingrese su nombre completo</p>
           <div className="input-group mb-3">
 
@@ -93,7 +93,7 @@ const Registro = () => {
           />
           </div>
 
-          <label for="basic-url" className="form-label text-start">Ingresa tu contraseña</label>
+          <label className="form-label text-start">Ingresa tu contraseña</label>
           <div className="input-group mb-3">
             <Input type="password" className="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="contraseña"
             name="password1"
@@ -107,11 +107,11 @@ const Registro = () => {
             value={password2}
             onChange={handleInputChange} />
           </div>
-          <div class="d-grid gap-2">
+          <div className="d-grid gap-2">
             <Button className="btn btn-primary mb-3" type="submit">Registrarse</Button>
           </div>
         </form>
-        <p>¿ Ya tienes cuenta ? <Link to="/login">Iniciar Sesión</Link></p>
+        <p>¿ Ya tienes cuenta ? <Link to="/auth/login">Iniciar Sesión</Link></p>
       </div>
 
   )

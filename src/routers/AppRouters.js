@@ -5,15 +5,17 @@ import { Servicios } from "../components/Servicios/Servicios";
 import { Tips } from "../components/Servicios/Tips";
 import Registro from "../components/login/Registro";
 import { login } from "../actions/actions";
-import {firebase} from '../firebase/firebaseConfig'
+import { firebase } from "../firebase/firebaseConfig";
 import { useDispatch } from "react-redux";
 import { PublicRoute } from "./PublicRoute";
-import { AuthRouter } from './AuthRouter'
-import {PrivateRoute} from './PrivateRoute'
+import { AuthRouter } from "./AuthRouter";
+import { PrivateRoute } from "./PrivateRoute";
 import Loading from "../components/Loading";
 import { Listar } from "../actions/citaAction";
-import ListarCita from '../components/ListarCita'
+import ListarCita from "../components/Citas/ListarCita";
 import Login from "../components/login/Login";
+import Olvido from "../components/login/Olvido";
+import {InicioAuth} from '../components/Home/InicioAuth'
 
 export const AppRouters = () => {
   const [checking, setChecking] = useState(true);
@@ -38,46 +40,63 @@ export const AppRouters = () => {
     return <Loading />;
   }
 
-    return (
-      <BrowserRouter>
-        <Switch>
-          <PublicRoute 
-          path="/auth" 
-          component={AuthRouter} 
-          isAuthenticated={isLooggedIn} 
-          />
+  return (
+    <BrowserRouter>
+      <Switch>
+        <PublicRoute
+          path="/auth"
+          component={AuthRouter}
+          isAuthenticated={isLooggedIn}
+        />
 
-          <PublicRoute 
-          path="/inicio" 
-          component={Inicio} 
-           
-          />
+        <PublicRoute exact path="/inicio" component={Inicio} />
 
-          <PublicRoute 
-          path="/Servicios" 
-          component={Servicios} 
-          />
+        <PublicRoute exact path="/auth/Servicios" component={Servicios} />
 
-          <PublicRoute 
-          path="/Tips" 
-          component={Tips} 
-          />
+        <PublicRoute exact path="/auth/Tips" component={Tips} />
 
-          <PublicRoute 
-            path="/login" 
-            component={Login} 
-          />
+        <PublicRoute exact path="/auth/login" component={Login} />
+        
+        <PublicRoute exact path="/auth/registro" component={Registro} />
 
-          <PrivateRoute
-            exact
-            path="/"
-            component={ListarCita}
-            isAuthenticated={isLooggedIn}
-          />
-          <Route exact path="/Registro" component={Registro} />
-        </Switch>
-        <Redirect to="/login" />
-      </BrowserRouter>
-    );
-  }
+        <PublicRoute exact path="/auth/olvido" component={Olvido} />
 
+        <PrivateRoute
+          exact
+          path="/"
+          component={InicioAuth}
+          isAuthenticated={isLooggedIn}
+        />
+
+        <PrivateRoute
+          exact
+          path="/listarCita"
+          component={ListarCita}
+          isAuthenticated={isLooggedIn}
+        />
+
+        <PrivateRoute
+          exact
+          path="/Tips"
+          component={Tips}
+          isAuthenticated={isLooggedIn}
+        />
+        
+        <PrivateRoute
+          exact
+          path="/Servicios"
+          component={Servicios}
+          isAuthenticated={isLooggedIn}
+        />
+
+        <Route
+        component={(props)=>((isLooggedIn)
+            ?(<Redirect to="/"  />)
+            :(<Redirect to="/inicio" />))}
+        />
+      </Switch>
+      
+
+    </BrowserRouter>
+  );
+};

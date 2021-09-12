@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {  citaNew, Edit, Listar, startUploading } from '../actions/citaAction'
-import { useForm } from '../hooks/useForm'
+import {  citaNew, Edit, Listar, startUploading } from '../../actions/citaAction'
+import { useForm } from '../../hooks/useForm'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
@@ -132,13 +132,13 @@ hora:Yup.string().required("Hora requerida"),
                 />
                 {formik.errors.email ?<div>{formik.errors.email}</div> : null}
                 <label>¿Que desea Agendar?</label>
-            <label for="general"> Medicina General</label>
-    <input name="categoria" type="radio" class="input-radio"  id="general" value="Medicina General"
+            <label > Medicina General</label>
+    <input name="categoria" type="radio" className="input-radio"  id="general" value="Medicina General"
                   onChange={formik.handleChange} />
 
 
-<label for="especialista" >Especialista</label>
-    <input name="categoria" type="radio" class="input-radio" id="especialista"  value="Especialista"
+<label>Especialista</label>
+    <input name="categoria" type="radio" className="input-radio" id="especialista"  value="Especialista"
                   onChange={formik.handleChange} />
           
           {formik.errors.categoria ?<div>{formik.errors.categoria}</div> : null}

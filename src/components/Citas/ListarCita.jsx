@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import {Delete, activeCita} from '../actions/citaAction'
+import {Delete, activeCita} from '../../actions/citaAction'
 
 const ListarCita = () => {
     const { cita } = useSelector(state => state.cita)

@@ -1,10 +1,37 @@
-import React from 'react'
-import { Navbar } from '../Home/Navbar'
+import React, { useEffect, useState } from 'react'
+import { NavbarH } from '../Home/NavbarH'
 import doctora from '../../assets/nurse-2019420_960_720.webp'
+import Navbar from '../Navbars/Navbar'
+import { useDispatch } from 'react-redux'
+import {firebase} from '../../firebase/firebaseConfig'
+import { login } from '../../actions/actions'
+
+
 export const Servicios = () => {
+
+    const dispatch = useDispatch();
+    const [isLooggedIn, setsIsLoogedIn] = useState(false);
+
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged(async (user) => {
+          if (user?.uid) {
+            dispatch(login(user.uid, user.displayName));
+            setsIsLoogedIn(true);
+            <Navbar />
+          } else {
+            setsIsLoogedIn(false);
+            <NavbarH />
+          }
+          
+        });
+      }, []);
+    
     return (
         <div>
-            <Navbar/>
+            {
+                    isLooggedIn ? <Navbar/> : <NavbarH />
+            }
+            
             <section className="Servicios">
                 <div className="Servicios__contenedor--title">
                     <h1>Servicios</h1>
