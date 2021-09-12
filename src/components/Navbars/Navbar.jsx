@@ -98,17 +98,23 @@ const Navbar = () => {
                   </Link>
                 </li>
 
+                <li className="nav-item">
+                  <Link className="nav-link" to="/Historial">
+                    Historial
+                  </Link>
+                </li>
+
                 <li className="text-danger d-flex">{name}</li>
 
                 <Link to="/inicio">
-                <li
-                  onClick={() => dispatch(startLogout())}
-                >
-                  Cerrar Sesion
-                </li>
-              </Link>
+                  <li
+                    onClick={() => dispatch(startLogout())}
+                  >
+                    Cerrar Sesion
+                  </li>
+                </Link>
 
-                </ul>
+              </ul>
             </div>
           </div>
         </div>

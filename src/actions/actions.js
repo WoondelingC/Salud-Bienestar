@@ -85,9 +85,9 @@ export const login = (uid, displayName,email,image) => ({
 
 
 export const startLogout = () => {
-  return async( dispatch ) => {
-      await firebase.auth().signOut();
-      dispatch( logout() );
+  return async (dispatch) => {
+    await firebase.auth().signOut();
+    dispatch(logout());
   }
 }
 

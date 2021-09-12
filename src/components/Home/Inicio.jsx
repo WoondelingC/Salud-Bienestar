@@ -1,6 +1,5 @@
 import React from 'react'
-import { NavbarH } from './NavbarH'
-
+/*IMAGENES*/
 import icon from '../../assets/agenda.png'
 import iconOne from '../../assets/cosecha.png'
 import iconTwo from '../../assets/ejercicio.png'
@@ -11,6 +10,9 @@ import iconSix from '../../assets/equipo-medico.png'
 import iconSeven from '../../assets/2913008.png'
 import contacto from '../../assets/contacto.png'
 import '../../style/style.css'
+
+/*COMPONENTES*/
+import { NavbarH } from './NavbarH'
 import { Footer } from './Footer'
 import { Slider } from './Slider'
 
@@ -20,7 +22,7 @@ export const Inicio = () => {
             <NavbarH />
 
             <header>
-                <Slider/>
+                <Slider />
             </header>
 
             <div className="container__Agendar-cita">
@@ -101,12 +103,7 @@ export const Inicio = () => {
                 </div>
 
             </div>
-
-
-
-
-
-        <Footer/>
+            <Footer />
         </div>/*Fin container fluid */
     )
 }

@@ -1,6 +1,5 @@
 import React from 'react'
-import Navbar  from '../Navbars/Navbar'
-
+/*IMAGENES*/
 import icon from '../../assets/agenda.png'
 import iconOne from '../../assets/cosecha.png'
 import iconTwo from '../../assets/ejercicio.png'
@@ -11,6 +10,8 @@ import iconSix from '../../assets/equipo-medico.png'
 import iconSeven from '../../assets/2913008.png'
 import contacto from '../../assets/contacto.png'
 import '../../style/style.css'
+/*COMPONENTES*/
+import Navbar from '../Navbars/Navbar'
 import { Footer } from './Footer'
 
 export const InicioAuth = () => {
@@ -96,12 +97,7 @@ export const InicioAuth = () => {
                 </div>
 
             </div>
-
-
-
-
-
-        <Footer/>
+            <Footer />
         </div>/*Fin container fluid */
     )
 }
