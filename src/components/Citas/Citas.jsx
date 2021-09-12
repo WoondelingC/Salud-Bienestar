@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const Cita = ({cita, eliminarCita}) => ( 
     <div className="cita">
-        <p>Mascota: <span>{cita.mascota}</span> </p>
-        <p>Dueño: <span>{cita.propietario}</span> </p>
+        <p>Nombre Completo: <span>{cita.nombre}</span> </p>
+        <p>Correo Electronico: <span>{cita.email}</span> </p>
+        <p>Que Desea Agendar: <span>{cita.categoria}</span> </p>
         <p>Fecha: <span>{cita.fecha}</span> </p>
         <p>Hora: <span>{cita.hora}</span> </p>
-        <p>Sintomas: <span>{cita.sintomas}</span> </p>
+       
 
         <button
             className="button eliminar u-full-width"

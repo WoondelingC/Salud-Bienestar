@@ -1,6 +1,9 @@
 import React from "react";
 import logo from '../../assets/logo.png'
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { startLogout } from "../../actions/actions";
 
 const Logo = styled.img`
   width: 100px;
@@ -8,62 +11,82 @@ const Logo = styled.img`
 `
 
 const Navbar = () => {
+  const dispatch = useDispatch()
+  const { name } = useSelector((state) => state.auth);
+
   return (
-    <div className="container w-25 p-0 mt-2">
-      <nav class="navbar navbar-light bg-light">
-        <div class="container">
-          <a class="navbar-brand" href="/">
+    <div className="container p-0 mt-2">
+      <nav className="navbar navbar-light bg-light">
+        <div>
+          <a className="navbar-brand" href="/">
             <Logo src={logo} alt="" />
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            class="offcanvas offcanvas-end"
+            className="offcanvas offcanvas-end"
             tabindex="-1"
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
           >
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+            <div className="offcanvas-header">
+              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
                 Salud & Bienestar
               </h5>
               <button
                 type="button"
-                class="btn-close text-reset"
+                className="btn-close text-reset"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/">
+            <div className="offcanvas-body">
+              <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li className="nav-item">
+                  <Link className="nav-link active" aria-current="page" to="/">
                     Inicio
-                  </a>
+                  </Link>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/">
+                <li className="nav-item">
+                  <Link className="nav-Link" to='/perfil'>
                     Perfil
-                  </a>
+                  </Link>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/agendar">
                     Agendar Cita
-                  </a>
+                  </Link>
                 </li>
 
                 <li className="nav-item">
-                  <a class="nav-link" href="/">
+                  <Link className="nav-link" to="/Tips">
                     Tips de Salud
-                  </a>
+                  </Link>
                 </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link" to="/Servicios">
+                    Servicios
+                  </Link>
+                </li>
+
+                <li className="text-danger d-flex">{name}</li>
+
+                <Link to="/inicio">
+                <li
+                  onClick={() => dispatch(startLogout())}
+                >
+                  Cerrar Sesion
+                </li>
+              </Link>
+
                 </ul>
             </div>
           </div>

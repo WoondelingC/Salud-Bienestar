@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavbarH } from './NavbarH'
+import Navbar  from '../Navbars/Navbar'
 
 import icon from '../../assets/agenda.png'
 import iconOne from '../../assets/cosecha.png'
@@ -12,16 +12,11 @@ import iconSeven from '../../assets/2913008.png'
 import contacto from '../../assets/contacto.png'
 import '../../style/style.css'
 import { Footer } from './Footer'
-import { Slider } from './Slider'
 
-export const Inicio = () => {
+export const InicioAuth = () => {
     return (
         <div className="container-fluid">
-            <NavbarH />
-
-            <header>
-                <Slider/>
-            </header>
+            <Navbar />
 
             <div className="container__Agendar-cita">
                 <div className="container__Agendar-cita--titleImg">

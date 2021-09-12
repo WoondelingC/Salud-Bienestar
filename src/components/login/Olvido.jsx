@@ -1,4 +1,4 @@
-import logo from '../../assets/Logo.jpeg'
+import logo from '../../assets/logo.png'
 import { Img } from './Registro';
 import { Button } from './Registro';
 import { Input } from './Registro';
@@ -32,7 +32,7 @@ const Olvido = () => {
             required=""
           />
 
-          <div class="d-grid gap-2">
+          <div className="d-grid gap-2">
             <Button className="btn btn-primary">
               Confirmar
             </Button>
