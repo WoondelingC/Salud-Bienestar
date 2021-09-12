@@ -91,6 +91,8 @@ export const setCitas = (cita) => {
 export const Delete = (id) => {
     return async (dispatch) => {
 
+        window.confirm('¿estas seguro que deseas eliminar la cita?')
+
         await db.doc(`Cita/${id}`).delete();
         dispatch(deleteCita(id));
 
@@ -144,8 +146,8 @@ export const Edit = (cita) => {
         console.log(cita.id)
 
         Swal.fire({
-            title: 'Uploading...',
-            text: 'Please wait ...',
+            title: 'Actualizando cita...',
+            text: 'Por favor espere ...',
             allowOutsideClick: false,
             onBeforeOpen: () => {
                 Swal.showLoading()

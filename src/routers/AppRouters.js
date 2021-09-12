@@ -17,6 +17,8 @@ import Login from "../components/login/Login";
 import Olvido from "../components/login/Olvido";
 import { InicioAuth } from "../components/Home/InicioAuth";
 import Perfil from "../components/Perfil";
+import FormCita from "../components/Citas/FormCita";
+import EditCita from "../components/Citas/EditCita";
 
 export const AppRouters = () => {
   const [checking, setChecking] = useState(true);
@@ -78,8 +80,22 @@ export const AppRouters = () => {
 
         <PrivateRoute
           exact
-          path="/listarCita"
+          path="/listar"
           component={ListarCita}
+          isAuthenticated={isLooggedIn}
+        />
+
+        <PrivateRoute
+          exact
+          path="/agendar"
+          component={FormCita}
+          isAuthenticated={isLooggedIn}
+        />
+
+        <PrivateRoute
+          exact
+          path="/editar/:id"
+          component={EditCita}
           isAuthenticated={isLooggedIn}
         />
 
@@ -98,7 +114,7 @@ export const AppRouters = () => {
         />
 
         <Route
-          component={(props) =>
+          component={() =>
             isLooggedIn ? <Redirect to="/" /> : <Redirect to="/inicio" />
           }
         />
