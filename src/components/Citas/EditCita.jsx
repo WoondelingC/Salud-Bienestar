@@ -4,6 +4,8 @@ import { Edit, Listar, startUploading } from "../../actions/citaAction";
 import { useForm } from "../../hooks/useForm";
 import ListarCita from "./ListarCita";
 import styled from "styled-components";
+import { Verificar } from "../../helpers/Verificar";
+import { Input } from "./FormCita";
 
 export const Button = styled.button`
   background: #7579f7;
@@ -54,12 +56,13 @@ const EditCita = () => {
 
   return (
     <>
-      <div className=" py-3 container text-center w-25">
+    <Verificar />
+      <div className=" py-2 container text-center w-25">
         <form onSubmit={handleSubmit} className="form-signin">
-          <h1 className="text-center"> Actualizar Cita</h1>
+          <h1 className="text-center mb-0"> Actualizar Cita</h1>
           <div className="form-group input-group ">
             <h4 className="text-center"> </h4>
-            <input
+            <Input
               style={{ display: "none" }}
               type="text"
               className="form-control"
@@ -71,7 +74,7 @@ const EditCita = () => {
               hidden
             />
             <div>
-              <input
+              <Input
                 id="fileSelector"
                 type="file"
                 name="image"
@@ -80,7 +83,7 @@ const EditCita = () => {
               />
             </div>
             <div>
-              <input
+              <Input
                 className="btn-primary text-center"
                 type="button"
                 value="Cargar Imagen"
@@ -90,10 +93,10 @@ const EditCita = () => {
             </div>
           </div>
           <div className="form-group input-group">
-            <div className="form-group input-group mt-4">
-              <p className="m-0">Ingrese su nombre completo</p>
-              <div className="input-group mb-3"></div>
-              <input
+            <div className="form-group input-group mt-4 mb-3">
+              <p className="mb-1">Ingrese su nombre completo</p>
+              <div className="input-group mb-1"></div>
+              <Input
                 type="text"
                 name="nombre"
                 placeholder="Nombre Completo"
@@ -102,9 +105,9 @@ const EditCita = () => {
                 onChange={handleInputChange}
               />{" "}
             </div>
-            <p className="m-0">Ingresa tu correo electronico</p>
+            <p className="mb-1">Ingresa tu correo electronico</p>
             <div className="input-group mb-3">
-              <input
+              <Input
                 type="text"
                 name="email"
                 placeholder="Correo Electronico"
@@ -117,7 +120,7 @@ const EditCita = () => {
               <p className="m-0">¿Que desea Agendar?</p>
             </div>
             <div className="form-check">
-              <input
+              <Input
                 name="categoria"
                 type="radio"
                 className="form-check-input"
@@ -126,29 +129,28 @@ const EditCita = () => {
                 onChange={handleInputChange}
               />
               <label className="form-check-label" for="general">
-                {" "}
                 Medicina General
               </label>
             </div>
             <div className="form-check">
-              <input
+              <Input
                 name="categoria"
                 type="radio"
-                className="form-check-input"
+                className="form-check-input ms-2"
                 id="especialista"
                 value="Especialista"
                 onChange={handleInputChange}
               />
-              <label className="form-check-label" for="especialista">
+              <label className="form-check-label ms-2" for="especialista">
                 Especialista
               </label>
             </div>
 
-            <div className="input-group mb-3">
+            <div className="input-group mb-1 mt-4">
               <p className="m-0">Elige un dia para Agendar</p>
             </div>
             <div className="input-group mb-3">
-              <input
+              <Input
                 type="date"
                 name="fecha"
                 className="form-control mb-2"
@@ -156,23 +158,25 @@ const EditCita = () => {
                 value={fecha}
               />
             </div>
-            <div className="input-group mb-3">
+            <div className="input-group mb-1">
               <p className="m-0">Elige una Hora</p>
             </div>
             <div className="input-group mb-3">
-              <input
+              <Input
                 type="time"
                 name="hora"
-                className="u-full-width"
+                className="form-control mb-2"
                 onChange={handleInputChange}
                 value={hora}
               />
             </div>
           </div>
 
-          <Button type="submit" className="btn-primary">
-            Actualizar Cita
+          <div class="d-grid gap-2">
+          <Button type="submit" className="btn btn-primary fs-5">
+            Actualizar cita
           </Button>
+          </div>
         </form>
       </div>
       

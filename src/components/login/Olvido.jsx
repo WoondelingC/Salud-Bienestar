@@ -1,5 +1,7 @@
 import logo from '../../assets/logo.png'
-import { Img } from './Registro';
+import { Verificar } from '../../helpers/Verificar';
+import { NavbarH } from '../Home/NavbarH';
+import { Logo } from './Login';
 import { Button } from './Registro';
 import { Input } from './Registro';
 
@@ -7,9 +9,11 @@ import { Input } from './Registro';
 const Olvido = () => {
     
     return (
-      <div className="Registro py-4 container text-center w-25">
+      <>
+      <Verificar/>
+      <div className="Registro py-3 container text-center w-25">
         <form className="form-signin">
-          <Img src={logo} alt="" />
+          <Logo src={logo} alt="" />
 
           <h4 className="text-center mb-5">Olvido de Contraseña</h4>
 
@@ -39,6 +43,7 @@ const Olvido = () => {
           </div>
         </form>
       </div>
+      </>
     );
 }
 

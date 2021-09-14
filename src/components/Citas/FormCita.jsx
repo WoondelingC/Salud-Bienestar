@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
 import PrincipalNav from "../Navbars/PrincipalNav";
+import { Verificar } from "../../helpers/Verificar";
 
 export const Input = styled.input`
   background-color: rgba(176, 194, 184, 18);
@@ -25,6 +26,8 @@ export const Button = styled.button`
   border: none;
   border-radius: 50px;
 `;
+
+
 const FormCita = () => {
   let file = "";
 
@@ -81,14 +84,16 @@ const FormCita = () => {
 
   return (
     <>
+    <Verificar />
+
       <div className=" py-3 container text-center w-25">
         <form onSubmit={formik.handleSubmit} className="form-signin">
-          <h1 className="text-center"> Agendar Cita</h1>
+          <h1 className="text-center mb-3"> Agendar Cita</h1>
           <div className="form-group input-group ">
-            <h4 className="text-center">
-              {" "}
+            <h5 className="text-center">
+              
               Agende citas con nuestros profesionales de la salud
-            </h4>
+            </h5>
             <Input
               style={{ display: "none" }}
               type="text"
@@ -120,7 +125,7 @@ const FormCita = () => {
             </div>
           </div>
           <div className="form-group input-group mt-4">
-            <p className="m-0">Ingrese su nombre completo</p>
+            <p className="mb-1">Ingrese su nombre completo</p>
             <div className="input-group mb-3">
               <Input
                 type="text"
@@ -136,7 +141,7 @@ const FormCita = () => {
             {formik.errors.nombre ? (
               <div className="text-danger mb-4">{formik.errors.nombre}</div>
             ) : null}
-            <p className="m-0">Ingresa tu correo electronico</p>
+            <p className="mb-1">Ingresa tu correo electronico</p>
             <div className="input-group mb-3">
               <Input
                 type="text"
@@ -150,10 +155,10 @@ const FormCita = () => {
             {formik.errors.email ? (
               <div className="text-danger mb-4">{formik.errors.email}</div>
             ) : null}
-            <div className="input-group mb-3">
+            <div className="input-group mb-2">
               <p className="m-0">¿Que desea Agendar?</p>
             </div>
-            <div className="form-check">
+            <div className="form-chec mb-3">
               <input
                 name="categoria"
                 type="radio"
@@ -162,8 +167,7 @@ const FormCita = () => {
                 value="Medicina General"
                 onChange={formik.handleChange}
               />
-              <label className="form-check-label" htmlFor="general">
-                {" "}
+              <label className="form-check-label ms-2" htmlFor="general">
                 Medicina General
               </label>
             </div>
@@ -171,12 +175,12 @@ const FormCita = () => {
               <input
                 name="categoria"
                 type="radio"
-                className="form-check-input"
+                className="form-check-input ms-4"
                 id="especialista"
                 value="Especialista"
                 onChange={formik.handleChange}
               />
-              <label className="form-check-label" htmlFor="especialista">
+              <label className="form-check-label ms-2" htmlFor="especialista">
                 Especialista
               </label>
             </div>
@@ -184,7 +188,7 @@ const FormCita = () => {
               <div className="text-danger">{formik.errors.categoria}</div>
             ) : null}
 
-            <div className="input-group mb-3">
+            <div className="input-group mb-1">
               <p className="m-0">Elige un dia para Agendar</p>
             </div>
             <div className="input-group mb-3">
@@ -199,7 +203,7 @@ const FormCita = () => {
             {formik.errors.fecha ? (
               <div className="text-danger mb-3">{formik.errors.fecha}</div>
             ) : null}
-            <div className="input-group mb-3">
+            <div className="input-group mb-1">
               <p className="m-0">Elige una Hora</p>
             </div>
             <div className="input-group mb-3">
@@ -215,10 +219,11 @@ const FormCita = () => {
               <div className="text-danger mb-3">{formik.errors.hora}</div>
             ) : null}
           </div>
-
-          <Button type="submit" className="btn-primary">
+          <div class="d-grid gap-2">
+          <Button type="submit" className="btn btn-primary fs-5">
             Agendar Ahora
           </Button>
+          </div>
         </form>
       </div>
      

@@ -5,6 +5,7 @@ import plus from '../assets/anadir.png'
 import '../style/main.css'
 import Navbar from './Navbars/Navbar'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 
 const User = styled.img`
@@ -22,24 +23,26 @@ const Perfil = () => {
         <div className="container text-center py-2 w-50 content">
             
             <h3 className="mb-5">Perfil</h3>
-            <div className="mt-5 d-flex align-items-center justify-content-center">
-                <User src={image} alt="user" className="me-3" />
+            <div className="mt-5">
+                <User src={image} alt="user" className="mb-3" />
              <div>
                 <p>{name}</p>
                 <p>{email}</p>
-                <p>Fecha</p>
                 </div>   
             </div>
 
-            <div className="mt-5 text-center d-flex flex-column align-items-center">
-                <div className="mb-4 profile me-4">
+            <div className="mt-5 d-flex flex-column align-items-center">
+                <div className="mb-4 profile">
                     <img src={plus} alt="" className="me-3" />
-                    <p className="fs-6 fw-bold">Citas Medicas</p>
+
+                     <p className="fs-5 fw-bold">
+                        <Link className="text-decoration-none" to="/listar">Citas Medicas</Link>
+                        </p>
                 </div>
 
-                <div className="profile ms-2">
+                <div className="profile ms-5">
                     <img src={plus} alt="" className="me-3" />
-                    <p className="fs-6 fw-bold">Diagnóstico médico</p>
+                    <p className="fs-5 fw-bold"> <Link className="text-decoration-none" to="/agendar">Diagnóstico médico</Link></p>
                 </div>
                     
                 

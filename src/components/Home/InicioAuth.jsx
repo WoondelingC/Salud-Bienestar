@@ -16,7 +16,7 @@ import { Footer } from './Footer'
 
 export const InicioAuth = () => {
     return (
-        <div className="container-fluid">
+        <div>
             <Navbar />
 
             <div className="container__Agendar-cita">

@@ -3,8 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Delete, activeCita } from "../../actions/citaAction";
 import { AiFillEdit, AiFillDelete } from "react-icons/all";
+import {Verificar} from '../../helpers/Verificar'
+
+
 const ListarCita = () => {
   const { cita } = useSelector((state) => state.cita);
+  const {email} =useSelector((state)=> state.auth)
 
   const dispatch = useDispatch();
 
@@ -19,12 +23,17 @@ const ListarCita = () => {
 
   return (
     <>
+    <Verificar />
+    <div className="container">
+      
       {cita.map((data, index) => (
-        <div className="col-md-4 ms-5" key={`${index}-${data.id}`}>
-          <div className="card mb-1">
-            <div className="card-body">
+        
+        <div className="row d-flex justify-content-center">
+        <div className="col-md-5" key={`${index}-${data.id}`}>
+          <div className="card mb-2 mt-3">
+            <div className="card-body text-justify">
               <div className="d-flex justify-content-between">
-                <h1>Control de Citas</h1>
+                <h1 className="mb-4">Control de Citas</h1>
                 <h4>{data.name}</h4>
                 <div>
                   <i
@@ -37,7 +46,7 @@ const ListarCita = () => {
                     onClick={() => handleEdit(data)}
                     to={`/editar/${data.id}`}
                   >
-                    <AiFillEdit />
+                    <AiFillEdit className="ms-2"/>
                   </Link>
                 </div>
               </div>
@@ -49,7 +58,10 @@ const ListarCita = () => {
             </div>
           </div>
         </div>
+        </div>
+        
       ))}
+      </div>
     </>
   );
 };

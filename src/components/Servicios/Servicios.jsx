@@ -27,12 +27,12 @@ export const Servicios = () => {
                 <p>Contamos con una alta  experiencia para nuestros usuarios, especializaciones en psicología y nutrición ,
                     también bienestar y ayuda para el que más lo necesite.</p>
 
-                <ul>
+                <ul className="m-0 p-2">
                     <li>
                         <h3>Medicina general</h3>
                         <div className="container-li-text">
                             <img src={online} alt="medicina-online" />
-                            <button type="button" class="btn btn-info">Agendar cita</button>
+                            <button type="button" className="btn btn-info">Agendar cita</button>
                         </div>
 
                     </li>
@@ -42,7 +42,7 @@ export const Servicios = () => {
                         <h3>Especialidades</h3>
                         <div className="container-li-text">
                             <img src={medicina} alt="medicina-especialidad" />
-                            <button type="button" class="btn btn-info">Agendar cita</button>
+                            <button type="button" className="btn btn-info">Agendar cita</button>
                         </div>
 
                     </li>
@@ -52,19 +52,21 @@ export const Servicios = () => {
                         <h3>Especialidad Psicología</h3>
                         <div className="container-li-text">
                             <img src={psicologia} alt="psicologia" />
-                            <button type="button" class="btn btn-info">Agendar cita</button>
+                            <button type="button" className="btn btn-info">Agendar cita</button>
                         </div>
                     </li>
+                    </ul>
 
+                <ul className="d-flex justify-content-center pt-5 pb-5 m-0">
                     <li>
                         <h3>Especialidad Nutriólogo</h3>
                         <div className="container-li-text">
                             <img src={nutriologo} alt="psicologia" />
-                            <button type="button" class="btn btn-info">Agendar cita</button>
+                            <button type="button" className="btn btn-info">Agendar cita</button>
                         </div>
                     </li>
-
                 </ul>
+                
             </section>
             <Footer />
         </div>

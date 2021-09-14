@@ -18,7 +18,7 @@ import { Slider } from './Slider'
 
 export const Inicio = () => {
     return (
-        <div className="container-fluid">
+        <div>
             <NavbarH />
 
             <header>

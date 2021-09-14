@@ -3,15 +3,32 @@
 body{
     margin: 0px;
     font-family: 'Lato', sans-serif;
+    overflow:inherit!important;
+    padding-right: 0px!important;
 }
+
+.container-fluid {
+    width: 100%;
+    padding-right: var(--bs-gutter-x,-0.25rem);
+    padding-left: var(--bs-gutter-x,-0.25rem);
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+.mt-2 {
+    margin-top: -0.5rem!important;
+}
+
 /*NAVBAR*/
-#logo-nav{
-    width: 152px;
-    height: 90px;
-}
+#logo-nav {
+    width: 150px;
+    height: 60px;
+}   
+
 
 .navbar.navbar-expand-lg.navbar-light.bg-light {
     background: #38b6ff75!important;
+    padding: 15px;
 }
 #navbarNav{
     color: #3c3c3c;

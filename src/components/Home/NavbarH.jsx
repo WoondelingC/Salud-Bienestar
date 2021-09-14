@@ -9,7 +9,7 @@ export const NavbarH = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
+        
           <Logo src={logo} alt="logotipo" id="logo-nav" />
           <Ham
             className="navbar-toggler"
@@ -47,7 +47,7 @@ export const NavbarH = () => {
               </li>
             </ul>
           </div>
-        </div>
+        
       </nav>
     </div>
   );

@@ -8,6 +8,8 @@ import { useDispatch } from 'react-redux';
 import { startRegisterWithEmailPasswordName } from '../../actions/actions';
 import { removeError, setError } from '../../actions/uiErrors';
 import validator from 'validator'
+import {Logo} from './Login'
+import { Verificar } from '../../helpers/Verificar';
 
 export const Input = styled.input`
   background-color: rgba(176, 194, 184, 18);
@@ -15,12 +17,6 @@ export const Input = styled.input`
 export const A = styled.a`
   color: #CE20E0;
   text-decoration: none;
-`
-
-export const Img = styled.img`
-  width: 70%;
-  border-radius: 50%;
-  margin-bottom: 20px;
 `
 export const Button = styled.button`
   background: #7579F7;
@@ -67,14 +63,15 @@ const Registro = () => {
 }
 
   return (
-
-      <div className="Registro py-3 container text-center w-25">
+      <>
+      <Verificar/>
+      <div className="Registro py-1 container text-center w-25">
 
         <form className="form-signin"
         onSubmit={handleRegistro}
         >
 
-          <Link to="/"><Img src={logo} alt="logo" /></Link>
+          <Link to="/"><Logo src={logo} alt="logo" className="mb-3" /></Link>
           <p className="m-0" >Ingrese su nombre completo</p>
           <div className="input-group mb-3">
 
@@ -113,7 +110,7 @@ const Registro = () => {
         </form>
         <p>¿ Ya tienes cuenta ? <Link to="/auth/login">Iniciar Sesión</Link></p>
       </div>
-
+    </>
   )
 
 }

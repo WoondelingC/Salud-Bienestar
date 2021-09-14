@@ -6,13 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { startLogout } from "../../actions/actions";
 
 export const Logo = styled.img`
-  width: 150px;
-  height: 70px;
-  padding:0;
+  width: 130px;
+  height: 60px;
+  margin-left: 10px;
 `
 export const Ham = styled.button`
   height: 70px;
   width: 100px;
+  margin-right: 10px;
 `
 
 const Navbar = () => {
@@ -64,7 +65,7 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-Link" to='/perfil'>
+                  <Link className="nav-link" to='/perfil'>
                     Perfil
                   </Link>
                 </li>
@@ -106,7 +107,7 @@ const Navbar = () => {
 
                 <li className="text-danger d-flex">{name}</li>
 
-                <Link to="/inicio">
+                <Link className="nav-link" to="/inicio">
                   <li
                     onClick={() => dispatch(startLogout())}
                   >

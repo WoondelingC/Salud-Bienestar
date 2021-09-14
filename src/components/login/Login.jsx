@@ -9,12 +9,13 @@ import { Input } from './Registro';
 import { useForm } from '../../hooks/useForm';
 import { startGoogleLogin, startLoginEmailPassword } from '../../actions/actions'
 import { Link } from 'react-router-dom'
+import { Verificar } from '../../helpers/Verificar';
 
 
 const Google = styled.div`
     border-radius: 50px;
 `
-const Logo =styled.img`
+export const Logo =styled.img`
   width: 80%;
   margin-bottom: 60px;
   margin-top: 20px;
@@ -40,9 +41,11 @@ const Login = () => {
   }
 
   return (
-    <div className="Registro py-4 container text-center w-25">
+  <>
+    <Verificar/>
+    <div className="Registro py-2 pb-0 container text-center w-25">
       <form className="form-signin">
-        <Link to="/"><Logo src={logo} alt="logo" /></Link>
+        <Link to="/"><Logo src={logo} alt="logo" className="mb-4" /></Link>
         <p className="m-0">Email</p>
         <Input
           type="email"
@@ -95,7 +98,7 @@ const Login = () => {
         </div>
       </form>
     </div>
-
+    </>
   );
 }
 
