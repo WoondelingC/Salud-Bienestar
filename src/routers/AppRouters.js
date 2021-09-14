@@ -24,8 +24,8 @@ import Loading from "../components/Loading";
 
 import { Listar } from "../actions/citaAction";
 import ListarCita from "../components/Citas/ListarCita";
-import { Historial } from '../components/Historial'
-
+import { Historial } from '../components/HistorialMedico/Historial'
+import Perfil from "../components/Perfil";
 
 export const AppRouters = () => {
   const [checking, setChecking] = useState(true);
@@ -36,7 +36,7 @@ export const AppRouters = () => {
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
       if (user?.uid) {
-        dispatch(login(user.uid, user.displayName));
+        dispatch(login(user.uid, user.displayName, user.email, user.photoURL));
         setsIsLoogedIn(true);
         dispatch(Listar(user.uid));
       } else {
@@ -82,6 +82,13 @@ export const AppRouters = () => {
 
         <PrivateRoute
           exact
+          path="/perfil"
+          component={Perfil}
+          isAuthenticated={isLooggedIn}
+        />
+
+        <PrivateRoute
+          exact
           path="/listarCita"
           component={ListarCita}
           isAuthenticated={isLooggedIn}
@@ -108,13 +115,11 @@ export const AppRouters = () => {
         />
 
         <Route
-          component={(props) => ((isLooggedIn)
-            ? (<Redirect to="/" />)
-            : (<Redirect to="/inicio" />))}
+          component={(props) =>
+            isLooggedIn ? <Redirect to="/" /> : <Redirect to="/inicio" />
+          }
         />
       </Switch>
-
-
     </BrowserRouter>
   );
 };

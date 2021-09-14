@@ -19,7 +19,6 @@ export const A = styled.a`
 
 export const Img = styled.img`
   width: 70%;
-  border-radius: 50%;
   margin-bottom: 20px;
 `
 export const Button = styled.button`

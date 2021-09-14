@@ -11,6 +11,7 @@ import iconSeven from '../../assets/2913008.png'
 import contacto from '../../assets/contacto.png'
 import '../../style/style.css'
 
+import { Link } from "react-router-dom";
 /*COMPONENTES*/
 import { NavbarH } from './NavbarH'
 import { Footer } from './Footer'
@@ -28,7 +29,7 @@ export const Inicio = () => {
             <div className="container__Agendar-cita">
                 <div className="container__Agendar-cita--titleImg">
                     <img src={icon} alt="Libreta-De-Agendas" />
-                    <h1>Agendar Cita</h1>
+                    <Link to="/auth/login"><h1>Agendar Cita</h1></Link>
                 </div>
                 <p>Agende su cita con algunos de nuestros asesores de salud</p>
             </div>
@@ -36,19 +37,19 @@ export const Inicio = () => {
             <div className="container__categorias--tips">
                 <div className="grid categorias">
                     <div className="g-col-4">
-                        <h2>Alimentación Saludable</h2>
+                        <Link to="/auth/Tips"><h2>Alimentación Saludable</h2></Link>
                         <img src={iconOne} alt="Cosecha" />
                     </div>
                     <div className="g-col-4">
-                        <h2>Ejercicio fisico</h2>
+                    <Link to="/auth/Tips"><h2>Ejercicio fisico</h2></Link>
                         <img src={iconTwo} alt="Ejercicio" />
                     </div>
                     <div className="g-col-4">
-                        <h2>Paz mental</h2>
+                    <Link to="/auth/Tips"><h2>Paz mental</h2></Link>
                         <img src={iconThree} alt="Paz-mental" />
                     </div>
                     <div className="g-col-4">
-                        <h2>Tu descanso</h2>
+                    <Link to="/auth/Tips"><h2>Tu descanso</h2></Link>
                         <img src={iconFour} alt="Descanso" />
                     </div>
                 </div>
@@ -63,7 +64,7 @@ export const Inicio = () => {
                         <h2>Medicina general</h2>
                         <p>La Medicina General es el primer nivel de atención médica. La consulta está orientada al abordaje integral
                             del paciente en su aspecto físico, mental y social. </p>
-                        <button type="button" className="btn btn-secondary">Ir</button>
+                        <Link  to="/auth/Servicios"><button type="button" className="btn btn-secondary">Ir</button></Link>
 
                     </div>
                     <div className="g-col-4 categorias--servicios">
@@ -72,7 +73,7 @@ export const Inicio = () => {
                         <h2>Especialidades</h2>
                         <p>Esta especialidad médica se centra en el diagnóstico y el tratamiento integral de
                             los pacientes adultos, que en ocasiones se encuentran sin diagnóstico aparente.</p>
-                        <button type="button" className="btn btn-secondary">Ir</button>
+                        <Link  to="/auth/Servicios"><button type="button" className="btn btn-secondary">Ir</button></Link>
                     </div>
                     <div className="g-col-4 categorias--servicios">
 
@@ -80,7 +81,7 @@ export const Inicio = () => {
                         <h2>Psicología</h2>
                         <p>Agenda tu terapia psicológica online ,tratamientos que te apoyarán en ansiedad depresión ,
                             tristeza, autoestima, autoconfianza de forma dinámica para tu biesnestar.</p>
-                        <button type="button" className="btn btn-secondary">Ir</button>
+                        <Link  to="/auth/Servicios"><button type="button" className="btn btn-secondary">Ir</button></Link>
 
                     </div>
                 </div>

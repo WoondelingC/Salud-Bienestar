@@ -69,7 +69,7 @@ export const startRegisterWithEmailPasswordName = (email, password, name) => {
   }
 }
 
-export const login = (uid, displayName) => ({
+export const login = (uid, displayName,email,image) => ({
   type: types.login,
   payload: {
     uid,

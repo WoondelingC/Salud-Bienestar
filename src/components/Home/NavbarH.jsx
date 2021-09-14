@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "../../style/style.css";
+import { Logo, Ham } from "../Navbars/Navbar";
 
 export const NavbarH = () => {
 
@@ -9,8 +10,8 @@ export const NavbarH = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <img src={logo} alt="logotipo" id="logo-nav" />
-          <button
+          <Logo src={logo} alt="logotipo" id="logo-nav" />
+          <Ham
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -20,9 +21,9 @@ export const NavbarH = () => {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
-          </button>
+          </Ham>
           <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
+            <ul className="navbar-nav ps-3">
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/inicio">
                   Inicio

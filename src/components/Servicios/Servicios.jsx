@@ -10,7 +10,7 @@ import nutriologo from '../../assets/nutriologo.jpg'
 /*COMPONENTES*/
 import { Footer } from '../Home/Footer'
 import { Verificar } from '../../helpers/Verificar'
-
+import { Link } from 'react-router-dom';
 
 export const Servicios = () => {
 
@@ -32,7 +32,7 @@ export const Servicios = () => {
                         <h3>Medicina general</h3>
                         <div className="container-li-text">
                             <img src={online} alt="medicina-online" />
-                            <button type="button" class="btn btn-info">Agendar cita</button>
+                            <Link to="/listarCita"><button type="button" class="btn btn-info">Agendar cita</button></Link>
                         </div>
 
                     </li>
@@ -42,7 +42,7 @@ export const Servicios = () => {
                         <h3>Especialidades</h3>
                         <div className="container-li-text">
                             <img src={medicina} alt="medicina-especialidad" />
-                            <button type="button" class="btn btn-info">Agendar cita</button>
+                            <Link to="/listarCita"><button type="button" class="btn btn-info">Agendar cita</button></Link>
                         </div>
 
                     </li>
@@ -52,7 +52,7 @@ export const Servicios = () => {
                         <h3>Especialidad Psicología</h3>
                         <div className="container-li-text">
                             <img src={psicologia} alt="psicologia" />
-                            <button type="button" class="btn btn-info">Agendar cita</button>
+                            <Link to="/listarCita"><button type="button" class="btn btn-info">Agendar cita</button></Link>
                         </div>
                     </li>
 
@@ -60,7 +60,7 @@ export const Servicios = () => {
                         <h3>Especialidad Nutriólogo</h3>
                         <div className="container-li-text">
                             <img src={nutriologo} alt="psicologia" />
-                            <button type="button" class="btn btn-info">Agendar cita</button>
+                            <Link to="/listarCita"><button type="button" class="btn btn-info">Agendar cita</button></Link>
                         </div>
                     </li>
 
