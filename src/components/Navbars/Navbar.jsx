@@ -88,6 +88,22 @@ const Navbar = () => {
                 </li>
 
                 <li className="nav-item">
+                  <Link className="nav-link" to="/agregarpost/">
+                    Crear Publicaciones
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/editarpost/:id">
+                    Actualizar Publicaciones
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/posts">
+                    Publicaciones
+                  </Link>
+                </li>
+
+                <li className="nav-item">
                   <Link className="nav-link" to="/Tips">
                     Tips de Salud
                   </Link>

@@ -17,5 +17,12 @@ export const types ={
     citaActive: '[Cita] Active cita',
     LogoutClean:'[Cita] Clear cita',
     citaListar: '[Cita] Listar',
-    citaListarBusqueda: '[cita] ListarBusqueda'
+    citaListarBusqueda: '[cita] ListarBusqueda',
+
+    postAddNew:'[Post] New Post',
+    postActive:'[Post] Active Post',
+    postLoad:'[Post] Load Post',
+    postUpdate:'[Post] Update Post',
+    postDelete:'[Post] Delete Post',
+    postActiveClear:'[Post] Clear Post'
 }
