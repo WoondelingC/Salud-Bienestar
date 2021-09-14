@@ -17,7 +17,7 @@ export const Ham = styled.button`
 
 const Navbar = () => {
   const dispatch = useDispatch()
-  const { name } = useSelector((state) => state.auth);
+  const { name, email} = useSelector((state) => state.auth);
 
   return (
     <div className="mt-2" >
@@ -79,13 +79,32 @@ const Navbar = () => {
                     Control de citas
                   </Link>
                 </li>
+               
+                         
+ <li className="nav-item">
+                  <Link className="nav-link" to="/agregarpost/">
+                    Crear Publicaciones
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/editarpost/:id">
+                    Actualizar Publicaciones
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/posts">
+                    Publicaciones
+                  </Link>
+                </li>
 
+                        
+                       
                 <li className="nav-item">
                   <Link className="nav-link" to="/editar/:id">
                     Actualizar cita
                   </Link>
                 </li>
-
+               
                 <li className="nav-item">
                   <Link className="nav-link" to="/Tips">
                     Tips de Salud

@@ -24,6 +24,9 @@ import Perfil from "../components/Perfil";
 import FormCita from "../components/Citas/FormCita";
 import EditCita from "../components/Citas/EditCita";
 import { Historial } from "../components/Historial";
+import EditPost from "../components/posts/EditPost";
+import AddPost from "../components/posts/AddPost";
+import ListarPost from "../components/posts/ListarPost";
 
 export const AppRouters = () => {
   const [checking, setChecking] = useState(true);
@@ -105,7 +108,24 @@ export const AppRouters = () => {
           component={EditCita}
           isAuthenticated={isLooggedIn}
         />
-
+ <PrivateRoute
+          exact
+          path="/editarpost/:id"
+          component={EditPost}
+          isAuthenticated={isLooggedIn}
+        />
+         <PrivateRoute
+          exact
+          path="/agregarpost"
+          component={AddPost}
+          isAuthenticated={isLooggedIn}
+        />
+         <PrivateRoute
+          exact
+          path="/posts"
+          component={ListarPost}
+          isAuthenticated={isLooggedIn}
+        />
         <PrivateRoute
           exact
           path="/Tips"

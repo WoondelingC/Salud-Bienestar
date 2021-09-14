@@ -22,7 +22,7 @@ export const Verificar = () => {
             }
 
         });
-    }, []);
+    }, [ dispatch]);
     return (
         <div>
             {

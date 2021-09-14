@@ -5,7 +5,8 @@ import { useForm } from "../../hooks/useForm";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
-import PrincipalNav from "../Navbars/PrincipalNav";
+
+import { Verificar } from "../../helpers/verificar";
 
 export const Input = styled.input`
   background-color: rgba(176, 194, 184, 18);
@@ -56,7 +57,7 @@ const FormCita = () => {
       reset(active);
     }
     activeId.current = active.id;
-  }, [active]);
+  }, [active]); // eslint-disable-next-line 
 
   const [reset] = useForm(active);
 
@@ -81,6 +82,7 @@ const FormCita = () => {
 
   return (
     <>
+     <Verificar />
       <div className=" py-3 container text-center w-25">
         <form onSubmit={formik.handleSubmit} className="form-signin">
           <h1 className="text-center"> Agendar Cita</h1>

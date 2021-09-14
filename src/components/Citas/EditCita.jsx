@@ -4,6 +4,7 @@ import { Edit, Listar, startUploading } from "../../actions/citaAction";
 import { useForm } from "../../hooks/useForm";
 import ListarCita from "./ListarCita";
 import styled from "styled-components";
+import { Verificar } from "../../helpers/verificar";
 
 export const Button = styled.button`
   background: #7579f7;
@@ -54,6 +55,7 @@ const EditCita = () => {
 
   return (
     <>
+     <Verificar />
       <div className=" py-3 container text-center w-25">
         <form onSubmit={handleSubmit} className="form-signin">
           <h1 className="text-center"> Actualizar Cita</h1>

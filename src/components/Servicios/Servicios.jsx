@@ -9,7 +9,7 @@ import nutriologo from '../../assets/nutriologo.jpg'
 
 /*COMPONENTES*/
 import { Footer } from '../Home/Footer'
-import { Verificar } from '../../helpers/Verificar'
+import { Verificar } from '../../helpers/verificar'
 
 
 export const Servicios = () => {
