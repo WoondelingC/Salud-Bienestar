@@ -27,6 +27,8 @@ import { Historial } from "../components/Historial";
 import EditPost from "../components/posts/EditPost";
 import AddPost from "../components/posts/AddPost";
 import ListarPost from "../components/posts/ListarPost";
+import { Verificar } from "../helpers/verificar";
+import DetallesPost from "../components/posts/DetallesPost";
 
 export const AppRouters = () => {
   const [checking, setChecking] = useState(true);
@@ -53,7 +55,9 @@ export const AppRouters = () => {
 
   return (
     <BrowserRouter>
+     <Verificar />
       <Switch>
+     
         <PublicRoute
           path="/auth"
           component={AuthRouter}
@@ -87,7 +91,12 @@ export const AppRouters = () => {
           component={Perfil}
           isAuthenticated={isLooggedIn}
         />
-
+   <PrivateRoute
+          exact
+          path="/publicacion/:id"
+          component={DetallesPost}
+          isAuthenticated={isLooggedIn}
+        />
         <PrivateRoute
           exact
           path="/listar"

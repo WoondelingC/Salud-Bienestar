@@ -18,7 +18,7 @@ export const Servicios = () => {
     return (
         <div>
             {/*VERIFICA SI ESTA LOGUEADO O NO , Y ME MUESTRA EL NAVBAR CORRECTO */}
-            <Verificar />
+            
             <section className="Servicios">
                 <div className="Servicios__contenedor--title">
                     <h1>Servicios</h1>

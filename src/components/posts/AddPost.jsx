@@ -8,7 +8,7 @@ import {
   startUploadingImage,
   startUploadingVideo,
 } from "../../actions/postAction";
-import ListarPost from "./ListarPost";
+
 import { useForm } from "../../hooks/useForm";
 import { Verificar } from "../../helpers/verificar";
 
@@ -87,7 +87,7 @@ const AddPost = () => {
 
   return (
     <>
-    <Verificar />
+ 
     <form
       onSubmit={formik.handleSubmit}
       className="card card-body border-primary py-4 px-5"
@@ -226,7 +226,7 @@ const AddPost = () => {
       <button type="submit" className="btn btn-dark mt-3">
         Guardar Publicación
       </button>
-      <ListarPost />
+      
     </form>
   </>
   );

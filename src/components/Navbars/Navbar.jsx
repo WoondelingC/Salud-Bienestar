@@ -17,7 +17,7 @@ export const Ham = styled.button`
 
 const Navbar = () => {
   const dispatch = useDispatch()
-  const { name, email} = useSelector((state) => state.auth);
+  const { name, uid} = useSelector((state) => state.auth);
 
   return (
     <div className="mt-2" >
@@ -80,7 +80,9 @@ const Navbar = () => {
                   </Link>
                 </li>
                
-                         
+                {
+                            uid === 'OzsqDZqus0P3cSKDNuA2u73OP2h2' && 
+                            <>
  <li className="nav-item">
                   <Link className="nav-link" to="/agregarpost/">
                     Crear Publicaciones
@@ -96,8 +98,8 @@ const Navbar = () => {
                     Publicaciones
                   </Link>
                 </li>
-
-                        
+</>
+                }    
                        
                 <li className="nav-item">
                   <Link className="nav-link" to="/editar/:id">

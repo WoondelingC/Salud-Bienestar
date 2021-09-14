@@ -11,7 +11,7 @@ export const Tips = () => {
       
     return (
         <div>
-           <Verificar />
+        
             <h2>Tips de salud por hacer</h2>
         </div>
     )

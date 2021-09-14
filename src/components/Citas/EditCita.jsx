@@ -55,7 +55,7 @@ const EditCita = () => {
 
   return (
     <>
-     <Verificar />
+
       <div className=" py-3 container text-center w-25">
         <form onSubmit={handleSubmit} className="form-signin">
           <h1 className="text-center"> Actualizar Cita</h1>

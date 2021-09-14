@@ -63,7 +63,7 @@ const EditPost = () => {
 
   return (
     <>
-    <Verificar />
+ 
     <form
       onSubmit={formik.handleSubmit}
       className="card card-body border-primary py-4 px-5"
@@ -163,9 +163,9 @@ const EditPost = () => {
       ) : null}
 
       <button type="submit" className="btn btn-dark mt-3">
-        Guardar Publicación
+        Editar Publicación
       </button>
-      <ListarPost />
+   
     </form>
     </>
   );

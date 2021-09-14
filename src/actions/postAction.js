@@ -104,29 +104,24 @@ export const addNewPost = (post) => ({
 })
 
 
-//LISTAR PELICULAS DE FIREBASE
-//LISTA SOLO UNA
 
-//LISTA TAL COMO SE INGRESARON
-export const Listar = () => {
+export const Listar = (uid) => {
     return async (dispatch) =>{
-        const postList =  await loadPost();
+        const postList =  await loadPost(uid);
         dispatch(setPosts(postList))
     }
 }
 
-//LISTA POR MAYOR RATING
 
-//FUNCION SINCRONICA
 export const setPosts = (post) => {
     return {
-        type: types.postLoad,
+        type: types.postGet,
         payload: post
     }
 }
 
 
-//EDITAR MOVIE
+
 
 export const edit = (post) => {
     return async (dispatch) => {
@@ -160,17 +155,18 @@ export const edit = (post) => {
 
         Swal.fire('Publicación Editada', post.title, 'success');
         dispatch(Listar())
+        dispatch(postActiveClear())
     }
 }
 
 //BORRAR UNA CARD
 
 export const Delete = (id) => {
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
+        window.confirm('¿estas seguro que deseas eliminar la publicación?')
+       
 
-        const uid = getState().auth.uid;
-
-        await db.doc(`/post/${id}`).delete();
+        await db.doc(`post/${id}`).delete();
 
         dispatch(deletePost(id));
         Swal.fire({
@@ -180,7 +176,7 @@ export const Delete = (id) => {
             showConfirmButton: false,
             timer: 1500
           })
-          dispatch(Listar(uid))
+          dispatch(Listar())
     }
 }
 
@@ -194,7 +190,7 @@ export const deletePost = (id) => ({
 //FUNCIONES SINCRONICAS
 
 
-export const postActive = (post) => {
+export const activePost = (post) => {
     return{
         type:types.postActive,
         payload:{

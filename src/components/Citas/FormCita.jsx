@@ -82,7 +82,7 @@ const FormCita = () => {
 
   return (
     <>
-     <Verificar />
+    
       <div className=" py-3 container text-center w-25">
         <form onSubmit={formik.handleSubmit} className="form-signin">
           <h1 className="text-center"> Agendar Cita</h1>
@@ -172,7 +172,7 @@ const FormCita = () => {
             <div className="form-check">
               <input
                 name="categoria"
-                type="radio"
+                type="select"
                 className="form-check-input"
                 id="especialista"
                 value="Especialista"
@@ -185,6 +185,9 @@ const FormCita = () => {
             {formik.errors.categoria ? (
               <div className="text-danger">{formik.errors.categoria}</div>
             ) : null}
+            
+
+
 
             <div className="input-group mb-3">
               <p className="m-0">Elige un dia para Agendar</p>

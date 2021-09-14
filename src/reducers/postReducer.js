@@ -22,7 +22,7 @@ export const postReducer = (state = initialState, action) => {
                 ...state,
                 post: [action.payload, ...state.post]
             }
-        case types.postLoad:
+        case types.postGet:
             return {
                 ...state,
                 post: [...action.payload]
