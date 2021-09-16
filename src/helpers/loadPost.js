@@ -5,10 +5,10 @@ export const loadPost = async (uid) => {
     const PostStore = await db.collection(`/post`).get()
     const postList = [];
 
-    PostStore.forEach(hijo=>{
+    PostStore.forEach(hijos=>{
         postList.push({
-        id:hijo.id,
-        ...hijo.data()
+        id:hijos.id,
+        ...hijos.data()
        })
     })
    

@@ -12,7 +12,7 @@ const reducer = combineReducers({
   cita:citaReducer,
   auth: authReducer,
   ui: uiReducer,
-  post:postReducer,
+  post:postReducer
 })
 
 export const store = createStore(

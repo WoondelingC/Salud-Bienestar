@@ -48,6 +48,7 @@ const FormCita = () => {
     }),
     onSubmit: (data) => {
       dispatch(citaNew(data));
+      formik.resetForm();
     },
   });
   const activeId = useRef(active.id);

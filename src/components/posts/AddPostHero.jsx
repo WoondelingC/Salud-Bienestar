@@ -10,9 +10,9 @@ import {
 } from "../../actions/postAction";
 
 import { useForm } from "../../hooks/useForm";
+import { Verificar } from "../../helpers/verificar";
 
-
-const AddPost = () => {
+const AddPostHero = () => {
     const { postActive } = useSelector(state => state.post)
   const dispatch = useDispatch();
 
@@ -43,10 +43,12 @@ const AddPost = () => {
     }),
     onSubmit: () => {
       // console.log('hace dispatch');
-      
+      if (postActive.title === "") {
         dispatch(postNew(formik.values));
         
-      
+      } else if (postActive.id !== "") {
+        dispatch(edit(formik.values));
+      }
       formik.resetForm();
     },
   });
@@ -231,4 +233,4 @@ const AddPost = () => {
  
 };
 
-export default AddPost;
+export default AddPostHero;

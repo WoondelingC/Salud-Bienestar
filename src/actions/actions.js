@@ -29,7 +29,7 @@ export const startLoginEmailPassword = (email, password) => {
       return firebase.auth().signInWithEmailAndPassword(email, password)
           .then(({ user }) => {
               dispatch(startLoading())
-              dispatch(login(user.uid, user.displayName,user.photoURL));
+              dispatch(login(user.uid, user.displayName, user.email, user.photoURL));
           })
           .catch(e => {
               console.log(e);
@@ -48,7 +48,7 @@ export const startRegisterWithEmailPasswordName = (email, password, name, urlIma
               await user.updateProfile({ displayName: name,photoURL: urlImage });
 
               dispatch(
-                  login(user.uid, user.displayName,user.photoURL)
+                  login(user.uid, user.displayName, user.email, user.photoURL)
               );
               console.log(user)
               Swal.fire({

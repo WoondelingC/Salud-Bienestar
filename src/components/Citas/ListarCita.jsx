@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Delete, activeCita } from "../../actions/citaAction";
 import { AiFillEdit, AiFillDelete } from "react-icons/all";
-import { Verificar } from "../../helpers/verificar";
+
 import { useForm } from "../../hooks/useForm";
 const ListarCita = () => {
   const { cita, active } = useSelector((state) => state.cita);
@@ -27,7 +27,7 @@ const ListarCita = () => {
 
   return (
     <>
-     <Verificar />
+    
       {cita.map((data, index) => (
         <div className="col-md-4 ms-5" key={`${index}-${data.id}`}>
           <div className="card mb-1">

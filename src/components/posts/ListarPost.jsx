@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {Delete, activePost} from '../../actions/postAction'
 import {AiFillEdit,AiFillDelete} from 'react-icons/all'
-import { Verificar } from '../../helpers/verificar'
+
 import { useForm } from '../../hooks/useForm'
 
 const ListarPost = () => {
     const { post, postActive } = useSelector(state => state.post)
-    
+    const {  uid} = useSelector((state) => state.auth); 
   const dispatch = useDispatch();
 
   const postActiveId = useRef(postActive.id);
@@ -42,6 +42,9 @@ const ListarPost = () => {
                                 <h1>Publicaciones</h1>
                                     
                                     <div>
+                                          {
+                            uid === 'OzsqDZqus0P3cSKDNuA2u73OP2h2' && 
+                            <>
                                         <i className="material-icons text-danger cursor-pointer"
                                             onClick={() => handleDelete(data.id)}
                                         >
@@ -52,11 +55,12 @@ const ListarPost = () => {
                 > 
                                         <AiFillEdit />
                                         </Link>
+                                        </>    } 
                                     </div>
                                 </div>
                                 <p>Titulo de la Publicación: {data.title}</p>
                                 <p>Categoria: {data.categoria}</p>
-                                <p>post {data.data}</p>
+                                <p>post {data.posts}</p>
                                 <Link to={`/publicacion/${data.id}`}>  <img className="img-fluid" src={data.urlImg} alt ={data.title} /> </Link>
                                 
 

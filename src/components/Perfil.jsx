@@ -18,7 +18,7 @@ const Perfil = () => {
 
     return (
         <>
-        <Navbar/>
+       
         <div className="container text-center py-2 w-50 content">
             
             <h3 className="mb-5">Perfil</h3>
@@ -27,7 +27,7 @@ const Perfil = () => {
              <div>
                 <p>{name}</p>
                 <p>{email}</p>
-                <p>Fecha</p>
+               
                 </div>   
             </div>
 

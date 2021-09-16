@@ -3,15 +3,31 @@
 body{
     margin: 0px;
     font-family: 'Lato', sans-serif;
+    overflow:inherit!important;
+    padding-right: 0px!important;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: var(--bs-gutter-x,-0.25rem);
+    padding-left: var(--bs-gutter-x,-0.25rem);
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+.mt-2 {
+    margin-top: -0.5rem!important;
 }
 /*NAVBAR*/
-#logo-nav{
-    width: 152px;
-    height: 90px;
-}
+#logo-nav {
+    width: 150px;
+    height: 60px;
+}   
+
 
 .navbar.navbar-expand-lg.navbar-light.bg-light {
     background: #38b6ff75!important;
+    padding: 30px;
 }
 #navbarNav{
     color: #3c3c3c;
@@ -196,6 +212,11 @@ header img {
 
 
 /*SERVICIOS*/
+
+.Servicios{
+    height: auto;
+    overflow: auto;
+}
 .Servicios__contenedor--title{
     display: flex;
     flex-direction: row-reverse;
@@ -254,6 +275,43 @@ header img {
     align-items: unset;
 }
 
+/*HISTORIAL*/
+.Historial
+{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    border: 3px solid #c7c7c7;
+    padding: 15px;
+    margin: 0px auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.Checkbox{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.Checkbox p , .section_Checkbox p , .Select p{
+    font-size: 17px;
+    background: #e1e7ff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.Select , .section_Checkbox{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
 @media screen and (max-width: 580px){
     /*inicio*/
     .col.contacto img {
@@ -281,6 +339,68 @@ header img {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer */
+
+footer {
+    display: flex;
+    background-color: #c1c1c1;
+    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
+}
+footer h2 > img {
+    width: 170px;
+    height: 60px;
+}
+ footer  ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+ }
+
+ footer li {
+    padding: 0 10px;
+}
+
+footer li a {
+    color: #000;
+    text-decoration: none;
+}
+
+footer span {
+    font-size: 22px;
+    color: #21212194;
+    font-weight: bold;
+}
+
+#img-footer {
+    width: 30px;
+    background-color: #5857fa;
+    border-radius: 11px;
+    transition: width 2s, height 2s, transform 2s;
+}
+
+#img-footer:hover{
+    transform : scale(2);
+}
 
 
 

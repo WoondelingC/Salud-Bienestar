@@ -70,11 +70,12 @@ export const postNew = (post) => {
             urlVideo: post.urlVideo,
             urlImg: post.urlImg,
             fecha: post.fecha,
-            posts:post.posts
+            posts:post.posts,
+            
         }
 
         try {
-           await db.collection(`/post`).doc().set(newPost)
+            await db.collection(`/post`).doc().set(newPost)
             Swal.fire({
                 position: 'top-end',
                 text: 'Publicación Creada',
@@ -107,7 +108,7 @@ export const addNewPost = (post) => ({
 
 export const Listar = (uid) => {
     return async (dispatch) =>{
-        const postList =  await loadPost(uid);
+        const postList =  await loadPost(uid)
         dispatch(setPosts(postList))
     }
 }

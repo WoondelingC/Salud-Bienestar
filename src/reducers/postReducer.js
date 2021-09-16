@@ -9,7 +9,8 @@ const initialState = {
         autor: '',
         posts:'',
         categoria: '',
-        fecha:'',
+        fecha:''
+       
         
         
     }
