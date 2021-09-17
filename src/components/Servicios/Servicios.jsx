@@ -9,16 +9,16 @@ import nutriologo from '../../assets/nutriologo.jpg'
 
 /*COMPONENTES*/
 import { Footer } from '../Home/Footer'
-import { Verificar } from '../../helpers/Verificar'
-import { Link } from 'react-router-dom';
+
+
+import { Link } from "react-router-dom";
 
 export const Servicios = () => {
 
 
     return (
         <div>
-            {/*VERIFICA SI ESTA LOGUEADO O NO , Y ME MUESTRA EL NAVBAR CORRECTO */}
-            <Verificar />
+
             <section className="Servicios">
                 <div className="Servicios__contenedor--title">
                     <h1>Servicios</h1>

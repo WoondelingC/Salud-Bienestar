@@ -10,22 +10,27 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { PublicRoute } from "./PublicRoute";
 import { AuthRouter } from "./AuthRouter";
 import { PrivateRoute } from "./PrivateRoute";
-
 import { Inicio } from "../components/Home/Inicio";
 import { Servicios } from "../components/Servicios/Servicios";
 import { Tips } from "../components/Servicios/Tips";
-
 import { InicioAuth } from '../components/Home/InicioAuth'
 import Login from "../components/login/Login";
 import Olvido from "../components/login/Olvido";
 import Registro from "../components/login/Registro";
-
 import Loading from "../components/Loading";
-
 import { Listar } from "../actions/citaAction";
 import ListarCita from "../components/Citas/ListarCita";
-import { Historial } from '../components/HistorialMedico/Historial'
 import Perfil from "../components/Perfil";
+import FormCita from "../components/Citas/FormCita";
+import EditCita from "../components/Citas/EditCita";
+import { Historial } from "../components/HistorialMedico/Historial";
+import EditPost from "../components/posts/EditPost";
+import AddPost from "../components/posts/AddPost";
+import ListarPost from "../components/posts/ListarPost";
+import { Verificar } from "../helpers/verificar";
+import DetallesPost from "../components/posts/DetallesPost";
+import { InicioAdmin } from "../admin/InicioAdmin";
+import { ListarHistorial } from "../components/HistorialMedico/ListarHistorial";
 
 export const AppRouters = () => {
   const [checking, setChecking] = useState(true);
@@ -52,7 +57,9 @@ export const AppRouters = () => {
 
   return (
     <BrowserRouter>
+     <Verificar />
       <Switch>
+     
         <PublicRoute
           path="/auth"
           component={AuthRouter}
@@ -86,14 +93,50 @@ export const AppRouters = () => {
           component={Perfil}
           isAuthenticated={isLooggedIn}
         />
-
+   <PrivateRoute
+          exact
+          path="/publicacion/:id"
+          component={DetallesPost}
+          isAuthenticated={isLooggedIn}
+        />
         <PrivateRoute
           exact
-          path="/listarCita"
+          path="/listar"
           component={ListarCita}
           isAuthenticated={isLooggedIn}
         />
 
+        <PrivateRoute
+          exact
+          path="/agendar"
+          component={FormCita}
+          isAuthenticated={isLooggedIn}
+        />
+
+        <PrivateRoute
+          exact
+          path="/editar/:id"
+          component={EditCita}
+          isAuthenticated={isLooggedIn}
+        />
+ <PrivateRoute
+          exact
+          path="/editarpost/:id"
+          component={EditPost}
+          isAuthenticated={isLooggedIn}
+        />
+         <PrivateRoute
+          exact
+          path="/agregarpost"
+          component={AddPost}
+          isAuthenticated={isLooggedIn}
+        />
+         <PrivateRoute
+          exact
+          path="/posts"
+          component={ListarPost}
+          isAuthenticated={isLooggedIn}
+        />
         <PrivateRoute
           exact
           path="/Tips"
@@ -113,9 +156,16 @@ export const AppRouters = () => {
           component={Historial}
           isAuthenticated={isLooggedIn}
         />
+      {/*ROUTES ADMIN */}
+        <PrivateRoute
+          exact
+          path="/Historiales"
+          component={ListarHistorial}
+          isAuthenticated={isLooggedIn}
+        />
 
         <Route
-          component={(props) =>
+          component={() =>
             isLooggedIn ? <Redirect to="/" /> : <Redirect to="/inicio" />
           }
         />

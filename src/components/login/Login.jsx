@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import styled from 'styled-components'
 import logo from '../../assets/logo.png'
-import { Img } from './Registro';
+
 import { Button } from './Registro';
 import { Input } from './Registro';
-import { useForm } from '../../hooks/useForm';
+
 import { startGoogleLogin, startLoginEmailPassword } from '../../actions/actions'
 import { Link } from 'react-router-dom'
 
@@ -14,21 +15,40 @@ import { Link } from 'react-router-dom'
 const Google = styled.div`
     border-radius: 50px;
 `
+const Logo =styled.img`
+  width: 80%;
+  margin-bottom: 60px;
+  margin-top: 20px;
+`
 
 const Login = () => {
   const dispatch = useDispatch();
 
-  const [formValue, handleInputChange] = useForm({
-    email: '',
-    password: ''
-  })
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      email: Yup
+        .string()
+        .email("Invalid email address")
+        .required("Email required"),
+      password: Yup
+        .string()
+        .min(8, "La contraseña es muy corta - debe tener minimo 8 caracteres.")
+        .matches(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S/, "La contraseña debe tener un numero, una mayuscula y un minuscula.")
+        .required("Excribe tu contraseña."),
+    }),
+    onSubmit: () => {
 
-  const { email, password } = formValue;
+      dispatch(startLoginEmailPassword(email, password));
+        
+    },
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(startLoginEmailPassword(email, password));
-  }
+  const { email, password } = formik.values;
+  
 
   const handleLoginGoogle = () => {
     dispatch(startGoogleLogin());
@@ -36,8 +56,8 @@ const Login = () => {
 
   return (
     <div className="Registro py-4 container text-center w-25">
-      <form className="form-signin">
-        <Link to="/"><Img src={logo} alt="logo" /></Link>
+      <form className="form-signin" onSubmit={formik.handleSubmit}>
+        <Link to="/"><Logo src={logo} alt="logo" /></Link>
         <p className="m-0">Email</p>
         <Input
           type="email"
@@ -47,7 +67,7 @@ const Login = () => {
           placeholder="Email"
           required=""
           value={email}
-          onChange={handleInputChange}
+          onChange={formik.handleChange}
         />
 
         <p className="m-0">Contraseña</p>
@@ -60,11 +80,11 @@ const Login = () => {
           placeholder="Contraseña"
           required=""
           value={password}
-          onChange={handleInputChange}
+          onChange={formik.handleChange}
         />
 
         <div className="d-grid gap-2">
-          <Button className="btn btn-primary" onClick={handleSubmit}>
+          <Button className="btn btn-primary" type="submit">
             Ingresar
           </Button>
         </div>

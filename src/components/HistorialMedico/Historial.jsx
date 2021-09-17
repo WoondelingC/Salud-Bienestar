@@ -1,11 +1,12 @@
 
-import { React, useState } from 'react'
-import { Verificar } from '../../helpers/Verificar'
+import { React, useState, useRef, useEffect } from 'react'
+//import { Verificar } from '../../helpers/verificar'
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "../../hooks/useForm";
+import {AgregarHistorial} from '../../actions/actionHistorial';
 
 export const Historial = () => {
-
     const [name, setName] = useState("");
     const [razon, setRazon] = useState("");
     const [examen, setExamen] = useState("");
@@ -14,8 +15,24 @@ export const Historial = () => {
     const [describe, setDecribe] = useState("");
 
 
+    const { active } = useSelector((state) => state.cita);
+    const activeId = useRef(active.id);
+
+    useEffect(() => {
+        if (active.id !== activeId.current) {
+        reset(active)
+        }
+        activeId.current = active.id
+    }, [active])
+
+
+    
+    const [reset] = useForm(active);
+    
+
+
     //FUNCIONES PARA CAPTURAR LOS DATOS
-    const handleChangeName= e => {
+    const handleChangeName = e => {
         setName(e.target.value);
     }
 
@@ -36,39 +53,36 @@ export const Historial = () => {
         setDecribe(e.target.value);
     }
     //ENVIO DEL FORMULARIO
+    const dispatch = useDispatch();
+
     const handleSubmit = e => {
         e.preventDefault();
         console.log('Enviado');
-        console.log(name ,razon, examen, operacion, tiempo, describe)
+        console.log(name, razon, examen, operacion, tiempo, describe)
+
+        dispatch(AgregarHistorial(name, razon, examen, operacion, tiempo, describe))
 
     }
 
-    const dispath = useDispatch();
-
-    const crearHistorial = (cita) =>{
-        dispath(AgregarHistorial(cita))
-  }
-
-    
 
     return (
         <div>
-            <Verificar />
+
             <Form className="Historial" onSubmit={handleSubmit}>
                 <h1>Historial Médico</h1>
                 <p>Este formulario nos permite conocerla(o) mejor y saber cómo podemos ayudarle</p>
-                <br/>
+                <br />
                 <p className="m-0" >Ingrese su nombre completo</p>
                 <FormGroup className="input-group mb-3">
 
-                    <Input 
-                    type="text" 
-                    className="form-control mb-2" 
-                    placeholder="Nombre"
-                    aria-label="Username" 
-                    aria-describedby="basic-addon1"
-                    onChange={handleChangeName}
-                    required />
+                    <Input
+                        type="text"
+                        className="form-control mb-2"
+                        placeholder="Nombre"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                        onChange={handleChangeName}
+                        required />
                 </FormGroup>
 
 
@@ -104,8 +118,8 @@ export const Historial = () => {
                 <FormGroup className="Select">
                     <p>¿Que problemas médicos tiene o ha tenido en el pasado?</p>
                     <select className="form-select" aria-label="Default select example" id="selectOne" name="selectOne" onChange={handleChangeSelectOne} required>
-                        <option select="true">Selecciona tu opción</option>
-                        <option defaultValue="Diabetes">Diabetes</option>
+                        <option select="true" >Selecciona tu opción</option>
+                        <option defaultValue="Diabetes" required>Diabetes</option>
                         <option defaultValue="Hipertensión">Hipertensión</option>
                         <option defaultValue="Colesterol alto">Colesterol alto</option>
                         <option defaultValue="Hepatitis A">Hepatitis A</option>
@@ -114,7 +128,6 @@ export const Historial = () => {
                         <option defaultValue="Problemas de hígado">Problemas de hígado</option>
                         <option defaultValue="Pancreatitis">Pancreatitis</option>
                         <option defaultValue="Insuficiencia renal">Insuficiencia renal</option>
-                        <option defaultValue="Cáncer">Cáncer</option>
                         <option defaultValue="Depresión o ansiedad">Depresión o ansiedad</option>
                         <option defaultValue="Problemas de tiroides">Problemas de tiroides</option>
                         <option defaultValue="Migrañas">Migrañas</option>
@@ -130,7 +143,7 @@ export const Historial = () => {
                     </select>
                 </FormGroup>{/*FIN DEL SELECCION PROBLEMAS MEDICOS */}
 
-                <FormGroup className="Select">
+                <FormGroup className="Select" required>
                     <p>¿Cuáles operaciones ha tenido en el pasado?</p>
                     <select className="form-select" aria-label="Default select example" id="selectTwo" name="selectTwo" onChange={handleChangeSelectTwo} required>
                         <option select="true">Selecciona tu opción</option>
@@ -154,6 +167,7 @@ export const Historial = () => {
                             id="flexCheckDefault"
                             defaultChecked={tiempo === '3-6 meses' ? true : false}
                             value="3-6 meses"
+                            required
                         />
                         <Label className="form-check-label" htmlFor="flexCheckDefault">3-6 meses</Label>
                     </div>
@@ -164,6 +178,7 @@ export const Historial = () => {
                             id="flexCheckDefault"
                             defaultChecked={tiempo === '+ de 1 año' ? true : false}
                             value="+ de 1 año"
+                            required
                         />
                         <Label className="form-check-label" htmlFor="flexCheckDefault">+ de 1 año</Label>
                     </div>

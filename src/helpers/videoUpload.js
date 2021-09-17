@@ -1,8 +1,8 @@
-export const fileUpload = async (file) =>{
+export const videoUpload = async (file) =>{
 
-    const cloudUrl = 'https://api.cloudinary.com/v1_1/daiki-23/image/upload';
+    const cloudUrl = 'https://api.cloudinary.com/v1_1/bfexplus/upload';
     const formData = new FormData();
-    formData.append('upload_preset','movies');
+    formData.append('upload_preset','api_daily');
     formData.append('file',file);
     
     try{

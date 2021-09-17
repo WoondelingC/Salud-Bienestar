@@ -4,12 +4,12 @@ import 'firebase/auth';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAl7a4ChlUXjNZCS6yGCKG7WMLB0fbT0jI",
-  authDomain: "salud-y-bienestar-7efa0.firebaseapp.com",
-  projectId: "salud-y-bienestar-7efa0",
-  storageBucket: "salud-y-bienestar-7efa0.appspot.com",
-  messagingSenderId: "312915567606",
-  appId: "1:312915567606:web:e717fe2a8f830804fa1dd7"
+  apiKey: "AIzaSyB8rCnj-wOnUGrU0v8AIAhLLkREKvwoRAI",
+  authDomain: "salud-bienestar-8820b.firebaseapp.com",
+  projectId: "salud-bienestar-8820b",
+  storageBucket: "salud-bienestar-8820b.appspot.com",
+  messagingSenderId: "615531528768",
+  appId: "1:615531528768:web:c28260813af3e7f66295a5"
 };
 
 firebase.initializeApp(firebaseConfig);
