@@ -32,7 +32,7 @@ export const Servicios = () => {
                         <h3>Medicina general</h3>
                         <div className="container-li-text">
                             <img src={online} alt="medicina-online" />
-                            <Link to="/listarCita"><button type="button" class="btn btn-info">Agendar cita</button></Link>
+                            <Link to="/listarCita"><button type="button" className="btn btn-info">Agendar cita</button></Link>
                         </div>
 
                     </li>
@@ -42,7 +42,7 @@ export const Servicios = () => {
                         <h3>Especialidades</h3>
                         <div className="container-li-text">
                             <img src={medicina} alt="medicina-especialidad" />
-                            <Link to="/listarCita"><button type="button" class="btn btn-info">Agendar cita</button></Link>
+                            <Link to="/listarCita"><button type="button" className="btn btn-info">Agendar cita</button></Link>
                         </div>
 
                     </li>
@@ -52,7 +52,7 @@ export const Servicios = () => {
                         <h3>Especialidad Psicología</h3>
                         <div className="container-li-text">
                             <img src={psicologia} alt="psicologia" />
-                            <Link to="/listarCita"><button type="button" class="btn btn-info">Agendar cita</button></Link>
+                            <Link to="/listarCita"><button type="button" className="btn btn-info">Agendar cita</button></Link>
                         </div>
                     </li>
 
@@ -60,7 +60,7 @@ export const Servicios = () => {
                         <h3>Especialidad Nutriólogo</h3>
                         <div className="container-li-text">
                             <img src={nutriologo} alt="psicologia" />
-                            <Link to="/listarCita"><button type="button" class="btn btn-info">Agendar cita</button></Link>
+                            <Link to="/listarCita"><button type="button" className="btn btn-info">Agendar cita</button></Link>
                         </div>
                     </li>
 

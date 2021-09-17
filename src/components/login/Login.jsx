@@ -18,7 +18,7 @@ const Google = styled.div`
 const Login = () => {
   const dispatch = useDispatch();
 
-  const [formValue, handleInputChange, reset] = useForm({
+  const [formValue, handleInputChange] = useForm({
     email: '',
     password: ''
   })

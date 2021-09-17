@@ -9,7 +9,7 @@ export const Footer = () => {
     return (
         <div>
         <footer>
-        <h2 id="title-footer"><img src={logo}/></h2>
+        <h2 id="title-footer"><img src={logo} alt="Logo"/></h2>
         <span>Hecho por Diana, Woonderling , José . Copyright 2021 - Todos los derechos reservados.</span>
         <ul>
             <li><a href="https://github.com/WoondelingC/Salud-Bienestar.git"><img src={github} id="img-footer" alt="icono-github"/></a></li>

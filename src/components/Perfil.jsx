@@ -1,5 +1,4 @@
 import React from 'react'
-import user from '../assets/user.jpg'
 import styled from 'styled-components'
 import plus from '../assets/anadir.png'
 import '../style/main.css'
