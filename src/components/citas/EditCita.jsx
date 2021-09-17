@@ -2,10 +2,9 @@ import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Edit, Listar, startUploading } from "../../actions/citaAction";
 import { useForm } from "../../hooks/useForm";
-import ListarCita from "./ListarCita";
 import styled from "styled-components";
-import { Verificar } from "../../helpers/Verificar";
-import { Input } from "./FormCita";
+import { Input } from "../login/Registro";
+
 
 export const Button = styled.button`
   background: #7579f7;
@@ -56,8 +55,8 @@ const EditCita = () => {
 
   return (
     <>
-    <Verificar />
-      <div className=" py-2 container text-center w-25">
+
+      <div className=" py-3 container text-center w-25">
         <form onSubmit={handleSubmit} className="form-signin">
           <h1 className="text-center mb-0"> Actualizar Cita</h1>
           <div className="form-group input-group ">
@@ -172,7 +171,7 @@ const EditCita = () => {
             </div>
           </div>
 
-          <div class="d-grid gap-2">
+          <div className="d-grid gap-2">
           <Button type="submit" className="btn btn-primary fs-5">
             Actualizar cita
           </Button>
