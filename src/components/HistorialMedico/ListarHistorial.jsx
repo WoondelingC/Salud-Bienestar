@@ -1,12 +1,17 @@
 
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "../../hooks/useForm";
+import {  ListarCard} from "../../actions/actionHistorial";
+
 export const ListarHistorial = () => {
 
     const { card } = useSelector(state => state.card)
 
-
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(ListarCard());
+      }, [dispatch]);
+    
     return (
         <div className=" row ">
             <h1>Historial de pacientes</h1>

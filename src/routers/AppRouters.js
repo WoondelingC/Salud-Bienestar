@@ -29,7 +29,7 @@ import AddPost from "../components/posts/AddPost";
 import ListarPost from "../components/posts/ListarPost";
 import { Verificar } from "../helpers/verificar";
 import DetallesPost from "../components/posts/DetallesPost";
-import { InicioAdmin } from "../admin/InicioAdmin";
+import { InicioAdmin } from "../components/admin/InicioAdmin";
 import { ListarHistorial } from "../components/HistorialMedico/ListarHistorial";
 
 export const AppRouters = () => {

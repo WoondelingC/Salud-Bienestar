@@ -66,9 +66,9 @@ export const Tips = () => {
     <div>
       <Content className="Contenedor-tips">
         <Title>Área de información</Title>
-        {tips.map((tip, index) => {
+        {tips.map(tip => {
           return (
-            <div className="container w-50" key={`${index}-${tip.id}`}>
+            <div className="container w-50" key={tip.id}>
               <div className="card mt-5 mb-2">
                 <H3 className="text-center">{tip.titulo}</H3>
                 <Image src={tip.image} className="card-img-top w-75 p-3 mx-auto d-block" alt="image" />

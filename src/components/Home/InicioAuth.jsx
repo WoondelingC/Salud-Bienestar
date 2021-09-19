@@ -5,7 +5,7 @@ import '../../style/style.css'
 /*COMPONENTES*/
 import {useSelector } from "react-redux";
 
-import { InicioAdmin } from '../../admin/InicioAdmin'
+import { InicioAdmin } from '../admin/InicioAdmin'
 import { InicioUserAuth } from './InicioUserAuth'
 
 export const InicioAuth = () => {

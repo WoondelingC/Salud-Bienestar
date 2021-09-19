@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from "react-redux";
-import '../style/admin.css'
+import '../../style/style.css'
 
 export const InicioAdmin = () => {
 
