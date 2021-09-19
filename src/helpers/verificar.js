@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { firebase } from '../firebase/firebaseConfig'
 import { useDispatch } from 'react-redux'
 import { login } from '../actions/actions'
-import { NavbarH } from '../components/Home/NavbarH'
+import  NavarInicio  from '../components/Navbars/NavbarInicio'
 import Navbar from '../components/Navbars/Navbar'
 
 export const Verificar = () => {
@@ -18,7 +18,7 @@ export const Verificar = () => {
                 <Navbar />
             } else {
                 setsIsLoogedIn(false);
-                <NavbarH />
+                <NavarInicio />
             }
 
         });
@@ -26,7 +26,7 @@ export const Verificar = () => {
     return (
         <div>
             {
-                isLooggedIn ? <Navbar /> : <NavbarH />
+                isLooggedIn ? <Navbar /> : <NavarInicio />
             }
         </div>
     )

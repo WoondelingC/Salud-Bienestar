@@ -4,16 +4,17 @@ import icon from '../../assets/agenda.png'
 import iconOne from '../../assets/cosecha.png'
 import iconTwo from '../../assets/ejercicio.png'
 import iconThree from '../../assets/338172.png'
-import iconFour from '../../assets/3094845.png'
+import iconFour from '../../assets/descanso.png'
 import iconFive from '../../assets/salud.png'
 import iconSix from '../../assets/equipo-medico.png'
 import iconSeven from '../../assets/2913008.png'
 import contacto from '../../assets/contacto.png'
+import user from '../../assets/3094845.png'
 import '../../style/style.css'
-
+import '../../style/animation.css'
 import { Link } from "react-router-dom";
 /*COMPONENTES*/
-import { NavbarH } from './NavbarH'
+import { NavarInicio } from '../Navbars/NavbarInicio'
 import { Footer } from './Footer'
 import { Slider } from './Slider'
 
@@ -29,59 +30,65 @@ export const Inicio = () => {
             <div className="container__Agendar-cita">
                 <div className="container__Agendar-cita--titleImg">
                     <img src={icon} alt="Libreta-De-Agendas" />
-                    <Link to="/auth/login"><h1>Agendar Cita</h1></Link>
+                    <Link to="/auth/login"><h1>Agenda tu cita</h1></Link>
                 </div>
-                <p>Agende su cita con algunos de nuestros asesores de salud</p>
+                <p>➤ Agende su cita con algunos de nuestros asesores de salud</p>
             </div>
 
             <div className="container__categorias--tips">
                 <div className="grid categorias">
                     <div className="g-col-4">
-                        <Link to="/auth/Tips"><h2>Alimentación Saludable</h2></Link>
+                        <Link to="/auth/Tips" className="ov-btn-slide-right"><h2>Alimentación</h2></Link>
                         <img src={iconOne} alt="Cosecha" />
                     </div>
                     <div className="g-col-4">
-                    <Link to="/auth/Tips"><h2>Ejercicio fisico</h2></Link>
+                    <Link to="/auth/Tips" className="ov-btn-slide-right"><h2>Ejercicios</h2></Link>
                         <img src={iconTwo} alt="Ejercicio" />
                     </div>
                     <div className="g-col-4">
-                    <Link to="/auth/Tips"><h2>Paz mental</h2></Link>
+                    <Link to="/auth/Tips" className="ov-btn-slide-right"><h2>Paz mental</h2></Link>
                         <img src={iconThree} alt="Paz-mental" />
                     </div>
                     <div className="g-col-4">
-                    <Link to="/auth/Tips"><h2>Tu descanso</h2></Link>
-                        <img src={iconFour} alt="Descanso" />
+                    <Link to="/auth/Tips" className="ov-btn-slide-right"><h2>Tu descanso</h2></Link>
+                        <img src={iconFour} alt="Descanso"/>
                     </div>
                 </div>
             </div>{/*fin container categorias */}
 
+            <div className="container__QuienesSomos">
+                <div className="container__QuienesSomos--img">
+                <img src={user} alt="usuarios" />
+                <h2>¿Quienes somos?</h2>
+                </div>
+                
+                <p>Salud y bienestar, presta servicios de manera virtual, con distintos servicios y especializaciones.
+
+                Esto se fundamento en un modelo de salud centrado en el usuario, el cual lleva procesos de manera fácil y rápida. Nuestros clientes nos recomiendan y disfrutan de nuestro servicio y la comodidad de nuestra página.
+
+                Nos encontramos en la capital de Colombia/Bogotá, contamos con citas directamente a través de Zoom, con los especialistas que te brindaran todo el asesoramiento adecuado a tu necesidad.</p>
+            </div>
+
+            
             <div className="container__categorias--servicios">
                 <h1>Servicios</h1>
                 <div className="grid categorias--servicios">
                     <div className="g-col-4 categorias--servicios">
 
-                        <img src={iconFive} alt="medicina" />
-                        <h2>Medicina general</h2>
-                        <p>La Medicina General es el primer nivel de atención médica. La consulta está orientada al abordaje integral
-                            del paciente en su aspecto físico, mental y social. </p>
-                        <Link  to="/auth/Servicios"><button type="button" className="btn btn-secondary">Ir</button></Link>
+                        <img src={iconFive} alt="medicina" id="img-servicios"/>
+                        <Link  to="/auth/Servicios"><h2>Medicina general</h2></Link>
 
                     </div>
                     <div className="g-col-4 categorias--servicios">
 
-                        <img src={iconSix} alt="doctor" />
-                        <h2>Especialidades</h2>
-                        <p>Esta especialidad médica se centra en el diagnóstico y el tratamiento integral de
-                            los pacientes adultos, que en ocasiones se encuentran sin diagnóstico aparente.</p>
-                        <Link  to="/auth/Servicios"><button type="button" className="btn btn-secondary">Ir</button></Link>
+                        <img src={iconSix} alt="doctor" id="img-servicios"/>
+                        <Link  to="/auth/Servicios"><h2>Especialidades</h2></Link>
+
                     </div>
                     <div className="g-col-4 categorias--servicios">
 
-                        <img src={iconSeven} alt="psicologia" />
-                        <h2>Psicología</h2>
-                        <p>Agenda tu terapia psicológica online ,tratamientos que te apoyarán en ansiedad depresión ,
-                            tristeza, autoestima, autoconfianza de forma dinámica para tu biesnestar.</p>
-                        <Link  to="/auth/Servicios"><button type="button" className="btn btn-secondary">Ir</button></Link>
+                        <img src={iconSeven} alt="psicologia" id="img-servicios"/>
+                        <Link  to="/auth/Servicios"><h2>Psicología</h2></Link>
 
                     </div>
                 </div>

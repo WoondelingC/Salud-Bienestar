@@ -57,7 +57,8 @@ const Login = () => {
   return (
     <div className="Registro py-4 container text-center w-25">
       <form className="form-signin" onSubmit={formik.handleSubmit}>
-        <Link to="/"><Logo src={logo} alt="logo" /></Link>
+       {/* <Link to="/"><Logo src={logo} alt="logo" /></Link>*/}
+       <h2>Inicia sesión</h2>
         <p className="m-0">Email</p>
         <Input
           type="email"

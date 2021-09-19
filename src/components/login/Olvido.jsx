@@ -1,5 +1,6 @@
 import logo from '../../assets/logo.png'
 import { Img } from './Registro';
+import { Link } from 'react-router-dom'
 import { Button } from './Registro';
 import { Input } from './Registro';
 
@@ -9,7 +10,7 @@ const Olvido = () => {
     return (
       <div className="Registro py-4 container text-center w-25">
         <form className="form-signin">
-          <Img src={logo} alt="" />
+          {/*<Img src={logo} alt="" />*/}
 
           <h4 className="text-center mb-5">Olvido de Contraseña</h4>
 
@@ -33,9 +34,9 @@ const Olvido = () => {
           />
 
           <div className="d-grid gap-2">
-            <Button className="btn btn-primary">
-              Confirmar
-            </Button>
+            <Link to=""><Button className="btn btn-primary">Confirmar</Button></Link>
+            <Link to="/auth/login">Volver</Link>
+
           </div>
         </form>
       </div>

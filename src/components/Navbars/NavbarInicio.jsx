@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "../../style/style.css";
-import { Logo, Ham } from "../Navbars/Navbar";
+import { Logo, Ham } from "./Navbar";
 
-export const NavbarH = () => {
+ const NavbarInicio = () => {
 
   return (
     <div>
@@ -52,3 +52,4 @@ export const NavbarH = () => {
     </div>
   );
 };
+export default NavbarInicio

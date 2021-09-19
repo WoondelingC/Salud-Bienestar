@@ -1,15 +1,29 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { startLogout } from "../../actions/actions";
 import logo from '../../assets/logo.png'
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { startLogout } from "../../actions/actions";
 
 export const Logo = styled.img`
-  width: 150px;
-  height: 70px;
-  padding:0;
+    width: 170px;
+    height: 65px;
+    margin-left: 5px;
+    padding: 0;
 `
+
+export const ContenedorNavbar = styled.div`
+a{
+  font-size: 18px;
+  color: #868686!important;
+}
+
+li{
+  color: #5b5bff!Important;
+}
+ 
+`
+
 export const Ham = styled.button`
   height: 70px;
   width: 100px;
@@ -20,12 +34,12 @@ const Navbar = () => {
   const { name, uid } = useSelector((state) => state.auth);
 
   return (
-    <div className="mt-2" >
+    <ContenedorNavbar className="mt-2" >
       <nav className="navbar navbar-light bg-light d-flex justify.content-between">
 
-        <a className="navbar-brand" href="/">
-          <Logo src={logo} alt="" />
-        </a>
+        <Link className="navbar-brand" to="/inicio">
+          <Logo src={logo} alt="logo" />
+        </Link>
 
 
         <div>
@@ -80,6 +94,7 @@ const Navbar = () => {
                   </Link>
                 </li>
 
+                {/*COMPROBAR SI EL ADMI ESTA LOGUEADO MUESTRO EL NAVBAR ADMI */}
                 {
                   uid === 'vQcQcKWqcgf3Ek41lWuNkDcJ5Ra2' &&
                   <>
@@ -131,7 +146,7 @@ const Navbar = () => {
                   </Link>
                 </li>
 
-                <li className="text-danger d-flex">{name}</li>
+                <li className="text-danger d-flex">Bienvenido/a - {name}</li>
                 <br />
 
                 <Link to="/inicio">
@@ -147,7 +162,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-    </div>
+    </ContenedorNavbar>
   );
 };
 

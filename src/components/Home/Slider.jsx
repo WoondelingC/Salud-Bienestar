@@ -1,7 +1,9 @@
 import React from 'react'
-import imgHeader from '../../assets/health-2082630_960_720.png'
-import imgHeadertwo from '../../assets/serv-med-gen-37u6b7apy483xl7kagsb9c.jpg'
+import imgHeader from '../../assets/header.jpg'
+import imgHeadertwo from '../../assets/health-2082630_960_720.jpg'
 import imgHeaderThree from '../../assets/shutterstock_1738390658_RED.jpg'
+import imgHeaderFour from '../../assets/citamedica.jpg';
+import '../../style/animation.css'
 import { Link } from 'react-router-dom'
 
 export const Slider = () => {
@@ -22,6 +24,9 @@ export const Slider = () => {
                 </div>
                 <div className="carousel-item">
                     <img src={imgHeaderThree} className="d-block w-100" alt="..." />
+                </div>
+                <div className="carousel-item">
+                    <img src={imgHeaderFour} className="d-block w-100" alt="..." />
                 </div>
             </div>
             <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
