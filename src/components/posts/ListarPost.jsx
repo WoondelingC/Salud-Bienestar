@@ -1,17 +1,21 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import {Delete, activePost} from '../../actions/postAction'
+import {Delete, activePost, Listar} from '../../actions/postAction'
 import {AiFillEdit,AiFillDelete} from 'react-icons/all'
 
 import { useForm } from '../../hooks/useForm'
-
+import styled from 'styled-components';
+const Image = styled.img`
+    border-radius: 20px;
+`
 const ListarPost = () => {
     const { post, postActive } = useSelector(state => state.post)
     const {  uid} = useSelector((state) => state.auth); 
   const dispatch = useDispatch();
 
   const postActiveId = useRef(postActive.id);
+  
   useEffect(() => {
     if (postActive.id !== postActiveId.current) {
       reset(postActive);
@@ -28,51 +32,51 @@ const ListarPost = () => {
         console.log('editar')
     }
    
+    useEffect(() => {
+    
+        dispatch(Listar())
+   
+    }, [dispatch])
+
+
 
     return (
         <>
     
-            {
-                
-                post.map((data,idx) => (
-                    <div className="col-md-4 ms-5" key={`${idx}-${data.id}`}>
-                        <div className="card mb-1" >
-                            <div className="card-body">
-                                <div className="d-flex justify-content-between">
-                                <h1>Publicaciones</h1>
-                                    
-                                    <div>
-                                          {
+         
+                 
+     
+                 {post.map((tip, index) => {
+                   return( 
+                   <div className="container w-50" key={`${index}-${tip.id}`}> 
+                   <div className="card mt-5 mb-2">
+                   {
                             uid === 'OzsqDZqus0P3cSKDNuA2u73OP2h2' && 
                             <>
                                         <i className="material-icons text-danger cursor-pointer"
-                                            onClick={() => handleDelete(data.id)}
+                                            onClick={() => handleDelete(tip.id)}
                                         >
                                             <AiFillDelete />
                                         </i>
-                                        <Link  onClick={() => handleEdit(data)}
-                to={`/editarpost/${data.id}`}
+                                        <Link  onClick={() => handleEdit(tip)}
+                to={`/editarpost/${tip.id}`}
                 > 
                                         <AiFillEdit />
                                         </Link>
-                                        </>    } 
-                                    </div>
-                                </div>
-                                <p>Titulo de la Publicación: {data.title}</p>
-                                <p>Categoria: {data.categoria}</p>
-                                <p>post {data.posts}</p>
-                                <Link to={`/publicacion/${data.id}`}>  <img className="img-fluid" src={data.urlImg} alt ={data.title} /> </Link>
-                                
-
-
-                           
-                                
-                            </div>
-                        </div>
-
-                    </div>
-                ))
-            }
+                                        </>    }
+                     <h3 className="text-center">{tip.title}</h3>
+                     <Image src={tip.urlImg} className="card-img-top w-75 p-3 mx-auto d-block" alt="image" />
+                     <div className="card-body">
+                       <p className="card-text text-center">{tip.posts}</p>
+                     </div>
+                    
+                   </div>
+                   </div>
+                   );
+                 })}
+               
+               
+          
 
         </>
     )

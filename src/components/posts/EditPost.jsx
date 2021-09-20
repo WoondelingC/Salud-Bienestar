@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import {
   edit,
+  Listar,
   postNew,
   startUploadingImage,
   startUploadingVideo,
@@ -60,11 +61,13 @@ const EditPost = () => {
       formik.values.urlVideo = fileURL;
     }
   };
-
+  useEffect(() => {
+    dispatch(Listar())
+}, [dispatch])
   return (
     <>
  
-    <form
+ <form
       onSubmit={formik.handleSubmit}
       className="card card-body border-primary py-4 px-5"
     >
@@ -87,34 +90,15 @@ const EditPost = () => {
         <div className="text-danger mb-3">{formik.errors.title}</div>
       ) : null}
 
-      <div className="form-group input-group mb-3">
-        <div className="input-group-text bg-light">
-          <i className="bi bi-star-fill"></i>
-        </div>
-        <input
-          type="text"
-          name="categoria"
-          placeholder="Elige una categoria"
-          className="form-control"
-          value={categoria}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-        />
-      </div>
-
-      {formik.touched.categoria && formik.errors.categoria ? (
-        <div className="text-danger mb-3">{formik.errors.categoria}</div>
-      ) : null}
+     
 
      
 
-      <div className="form-group input-group ">
-        <div className="input-group-text bg-light ">
-          <i className="bi bi-link-45deg"></i>
-        </div>
+      <div className="form-group input-group col-lg-4 col-lg-offset-4">
+        
         <input
           type="text"
-          className="form-control"
+          className="form-control center"
           placeholder="Imagen"
           name="urlImage"
           id="urlImage"
@@ -122,6 +106,7 @@ const EditPost = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           disabled
+          style={{ display: "none" }}
         />
       </div>
 
@@ -132,19 +117,22 @@ const EditPost = () => {
         accept="image/*"
         style={{ display: "none" }}
         onChange={handleFileChange}
+        className="text-center"
       />
-      <div className="w-50 btn btn-dark p-0 my-2 text-uppercase fw-bold">
+      <div class="d-flex justify-content-center">
+      <div className="w-50 btn btn-primary p-0 my-2 text-uppercase fw-bold">
         <input
           type="button"
-          className="btn text-white fw-bold"
-          value="Picture"
+          className="btn text-white fw-bold text-center"
+          value="Agregar Imagen"
           onClick={handleClickFile}
         />
       </div>
-
+      </div>
       {formik.touched.urlImg && formik.errors.urlImg ? (
         <div className="text-danger mb-3">{formik.errors.urlImg}</div>
       ) : null}
+
 
       <div className="form-group mt-3">
         <textarea
@@ -162,10 +150,10 @@ const EditPost = () => {
         <div className="text-danger mb-3">{formik.errors.posts}</div>
       ) : null}
 
-      <button type="submit" className="btn btn-dark mt-3">
+      <button type="submit" className="btn btn-primary mt-3">
         Editar Publicación
       </button>
-   
+      
     </form>
     </>
   );

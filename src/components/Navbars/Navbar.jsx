@@ -81,7 +81,7 @@ const Navbar = () => {
                 </li>
                
                 {
-                            uid === 'OzsqDZqus0P3cSKDNuA2u73OP2h2' && 
+                            uid === 'z9oYN7EOhLY5J8pNCluqBjR5XOg1' && 
                             <>
  <li className="nav-item">
                   <Link className="nav-link" to="/agregarpost/">
