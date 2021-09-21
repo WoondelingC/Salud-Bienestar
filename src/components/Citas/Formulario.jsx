@@ -26,7 +26,7 @@ const Formulario = ({ crearCita }) => {
     // Cuando el usuario presiona agregar cita
     const submitCita = e => {
         e.preventDefault();
-
+        
         // Validar
         if (nombre.trim() === '' || email.trim() === '' || fecha.trim() === '' || hora.trim() === '') {
             actualizarError(true);
@@ -49,6 +49,7 @@ const Formulario = ({ crearCita }) => {
             hora: '',
             categoria: ''
         })
+        setTimeout(()=>  window.location="/listar",1000);
     }
 
     return (

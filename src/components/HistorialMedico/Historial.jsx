@@ -61,6 +61,7 @@ export const Historial = () => {
         console.log(name, razon, examen, operacion, tiempo, describe)
 
         dispatch(AgregarHistorial(name, razon, examen, operacion, tiempo, describe))
+        setTimeout(()=>  window.location="/",1000);
 
     }
 

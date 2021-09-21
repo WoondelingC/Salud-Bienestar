@@ -26,7 +26,7 @@ export const AgregarHistorial = (name, razon, examen, operacion, tiempo, describ
         await db.collection('/Historial').doc().set(newCard)
          Swal.fire({
              position: 'top-end',
-             text: 'Enviando',
+             text: 'Enviado al personal médico',
              icon: 'success',
              showConfirmButton: false,
              timer: 1500

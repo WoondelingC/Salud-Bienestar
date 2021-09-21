@@ -92,6 +92,9 @@ const AddPostHero = () => {
       onSubmit={formik.handleSubmit}
       className="card card-body border-primary py-4 px-5"
     >
+          <div>
+      <h1>Crear publicación</h1>
+    </div>
       <div className="form-group input-group mb-3">
         <div className="input-group-text bg-light">
           <i className="bi bi-person-square"></i>

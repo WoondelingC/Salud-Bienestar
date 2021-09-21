@@ -1,7 +1,27 @@
 
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  ListarCard} from "../../actions/actionHistorial";
+import { ListarCard } from "../../actions/actionHistorial";
+import userCita from '../../assets/userCita.png';
+import notSearch from '../../assets/search.png';
+import styled from 'styled-components';
+
+
+
+const Title = styled.h2`
+
+  color: #ffffff;
+  background: #be83ffa6;
+  padding: 10px;
+  text-align: center;
+  border-radius: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0px auto;
+  margin-top: 40px;
+
+  `;
 
 export const ListarHistorial = () => {
 
@@ -10,41 +30,46 @@ export const ListarHistorial = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(ListarCard());
-      }, [dispatch]);
-    
-    return (
-        <div className=" row ">
-            <h1>Historial de pacientes</h1>
-            <br/>
-            {
-                card.map(data=>(
-                    <div className="col-md-4 text-center py-1 container" key={data.id}>
-                    <div className="card mt-2 container text-center">
-                        <div className="card-title text-center container">
-                            <h3>Paciente: {data.name}</h3>
-                           
-                            <span className="badge badge-pill bg-danger ml-2">Razon de diagnostico: {data.razon}</span>
-                            <p><strong>Problema médico:</strong> {data.examen}</p>
-                            <p><strong>Operaciones:</strong> {data.operacion}</p>
-                            <p><strong>Tiempo sin ir al medico:</strong> {data.tiempo}</p>
-                            <p><strong>Descripcion:</strong> {data.describe}</p>
-    
-                        </div>
-    
-                        <div className="card-body">
-                            <button
-                                className="btn btn-danger"
+    }, [dispatch]);
 
-                            >
-                                Delete
-                            </button>
-                        
+    return (
+        <>
+         <Title>Historiales</Title>
+    
+        <div className="container citas">
+          {
+          (card.length !== 0)?
+          card.map((data, index) => (
+            <div className="col-md-4 ms-5 citas" key={`${index}-${data.id}`}>
+              <div className="card mb-1">
+                <div className="card-body">
+                  <div className="d-flex justify-content-between">
+    
+                  <div className="container-iconText">
+                    <img src={userCita} alt="" className="img-cita" />
+                    <h3>{data.name}</h3>
                     </div>
-                    </div>
+                  </div>
+    
+                    <p><strong>Razon de diagnostico:</strong> {data.razon}</p>
+                    <p><strong>Problema médico:</strong> {data.examen}</p>
+                    <p><strong>Operaciones:</strong> {data.operacion}</p>
+                    <p><strong>Tiempo sin ir al medico:</strong> {data.tiempo}</p>
+                    <p><strong>Descripcion:</strong> {data.describe}</p>
                 </div>
-                ))
-            }
-           
-        </div>
-    )
-}
+              </div>
+            </div>
+          )):
+          <div className="container-notSearch">
+                <h1>No hay historiales</h1>
+                <img src={notSearch} alt="not-search"/>
+          </div>
+          
+          
+        
+        
+        }
+          </div>
+        </>
+      );
+    };

@@ -10,3 +10,89 @@
 .div{
     height: 25px;
 }
+
+/*POST*/
+
+.px-5 {
+    width: 430px;
+    margin: 0px auto;
+    margin-top: 40px;
+}
+
+/*INICIO ADMIN*/
+#img-admi{
+    width: 145px;
+    height: 155px;
+    padding: 15px;
+}
+
+.col.admin{
+    border: 5px solid #c1c1c1;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.grid.admin {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px auto;
+    align-content: center;
+    place-content: center;
+    margin-top: 65px;
+}
+
+/*PERFIL*/
+#container__admi-profile{
+    border-radius: 20px;
+    padding: 20px;
+    background: #f3f3f361;
+    width: max-content;
+    margin: 0px auto;
+    border: 2px solid #e6e6e6;
+}
+
+.content{
+    margin-top: 35px;
+}
+
+.img-profile{
+    width: 20px;
+    image-rendering: auto;
+}
+
+.container-iconText
+{
+    display: flex;
+    align-items: flex-start;
+}
+.container-iconText p{
+    margin-left: 10px;
+}
+/*LISTAR CITA*/
+
+.container.citas {
+    display: flex;
+    flex-flow: column;
+    place-items: center;
+    margin-top: 50px;
+}
+.img-cita {
+    width: 35px;
+    margin-right: 5px;
+    image-rendering: auto;
+}
+
+.col-md-4.ms-5.citas {
+    width: 420px;
+    margin-bottom: 30px;
+}
+
+.container-notSearch
+{
+    text-align: center;
+}
+
+.container-notSearch img{
+    width: 315px;
+
+}

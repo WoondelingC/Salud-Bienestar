@@ -37,9 +37,9 @@ const Navbar = () => {
     <ContenedorNavbar className="mt-2" >
       <nav className="navbar navbar-light bg-light d-flex justify.content-between">
 
-        <Link className="navbar-brand" to="/inicio">
+
           <Logo src={logo} alt="logo" />
-        </Link>
+       
 
 
         <div>
@@ -101,11 +101,6 @@ const Navbar = () => {
                     <li className="nav-item">
                       <Link className="nav-link" to="/agregarpost/">
                         Crear Publicaciones
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link className="nav-link" to="/editarpost/:id">
-                        Actualizar Publicaciones
                       </Link>
                     </li>
                     <li className="nav-item">

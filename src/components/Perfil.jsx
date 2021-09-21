@@ -1,51 +1,91 @@
 import React from 'react'
 import styled from 'styled-components'
-import plus from '../assets/anadir.png'
+import user from '../assets/userProfile.png'
+import emailicon from '../assets/email.png'
+import simbolo from '../assets/simbolo.png'
 import '../style/main.css'
-import Navbar from './Navbars/Navbar'
 import { useSelector } from 'react-redux'
-
+import { Link } from "react-router-dom";
 
 const User = styled.img`
-    width: 20%;
-    height: 20%;
-    border-radius: 50%;
+width: 155px;
+height: 156px;
+border-radius: 104px;
 `
 
 const Perfil = () => {
-    const { name, email, image } = useSelector((state) => state.auth);
+    const { name, email, image, uid } = useSelector((state) => state.auth);
 
     return (
         <>
-       
-        <div className="container text-center py-2 w-50 content">
-            
-            <h3 className="mb-5">Perfil</h3>
-            <div className="mt-5 d-flex align-items-center justify-content-center">
-                <User src={image} alt="user" className="me-3" />
-             <div>
-                <p>{name}</p>
-                <p>{email}</p>
-               
-                </div>   
+
+            <div className="container text-center py-2 w-50 content">
+
+                <h3 className="mb-5">Mi Perfil</h3>
+                <div className="mt-5 d-flex align-items-center justify-content-center" id="container__admi-profile">
+                    <User src={image} alt="user" className="me-3" />
+                    <div>
+                        <div className="container-iconText">
+                            <img src={user} alt="user-icon" className="img-profile" />
+                            <p> {name}</p>
+                        </div>
+                        <div className="container-iconText">
+                            <img src={emailicon} alt="email-icon" className="img-profile" />
+                            <p>{email}</p>
+                        </div>
+
+
+
+
+                    </div>
+                </div>{/*FIN justify-content-center*/}
+                {
+                    uid === 'vQcQcKWqcgf3Ek41lWuNkDcJ5Ra2' ?
+                        <>
+                            <div className="mt-5 text-center d-flex flex-column align-items-center">
+                                <div className="container-iconText">
+                                    <Link to="/listar"><img src={simbolo} alt="" className="img-profile" /></Link>
+                                    <p className="fs-6 fw-bold">Ver Control citas</p>
+                                </div>
+
+                                <div className="container-iconText">
+                                    <Link to="/Historiales"><img src={simbolo} alt="" className="img-profile" /></Link>
+                                    <p className="fs-6 fw-bold">Ver Historiales</p>
+                                </div>
+
+                                <div className="container-iconText">
+                                    <Link to="/Tips"><img src={simbolo} alt="" className="img-profile" /></Link>
+                                    <p className="fs-6 fw-bold">Ver Publicaciones</p>
+                                </div>
+
+
+
+                            </div>{/*fin clase align-items-center */}
+
+                        </>
+                        :
+
+                        <>
+                            <div className="mt-5 text-center d-flex flex-column align-items-center">
+                                <div className="container-iconText">
+                                    <Link to="/listar"><img src={simbolo} alt="" className="img-profile" /></Link>
+                                    <p className="fs-6 fw-bold">Citas Medicas</p>
+                                </div>
+
+                                <div className="container-iconText">
+                                    <Link to="/Historial"><img src={simbolo} alt="" className="img-profile" /></Link>
+                                    <p className="fs-6 fw-bold">Ir a Historial</p>
+                                </div>
+
+
+
+                            </div>{/*fin clase align-items-center */}
+                        </>
+
+                }
+
             </div>
 
-            <div className="mt-5 text-center d-flex flex-column align-items-center">
-                <div className="mb-4 profile me-4">
-                    <img src={plus} alt="" className="me-3" />
-                    <p className="fs-6 fw-bold">Citas Medicas</p>
-                </div>
-
-                <div className="profile ms-2">
-                    <img src={plus} alt="" className="me-3" />
-                    <p className="fs-6 fw-bold">Diagnóstico médico</p>
-                </div>
-                    
-                
-                
-            </div>
-        </div>
-        
         </>
     )
 }

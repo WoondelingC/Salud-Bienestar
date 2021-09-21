@@ -187,7 +187,7 @@ a{
     padding-bottom: 20px;
 }
 
-/*servicios*/
+/*servicios CATEGORIA INICIO*/
 .container__categorias--servicios {
     background: #fbfbfb;
     padding-bottom: 20px;
@@ -360,13 +360,18 @@ a{
     margin-bottom: 10px;
 }
 
+.btn.btn-secondary {
+    width: 135px;
+    place-content: center;
+    margin-top: 20px;
+}
 
 
 
 
 
 
-
+/*RESPONSIVE*/
 @media screen and (max-width: 580px){
     /*inicio*/
     .col.contacto img {

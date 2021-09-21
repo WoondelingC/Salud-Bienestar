@@ -49,6 +49,7 @@ const FormCita = () => {
     onSubmit: (data) => {
       dispatch(citaNew(data));
       formik.resetForm();
+      setTimeout(()=>  window.location="/listar",1000);
     },
   });
   const activeId = useRef(active.id);

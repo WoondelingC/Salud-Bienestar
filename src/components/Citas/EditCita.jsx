@@ -34,6 +34,7 @@ const EditCita = () => {
 
     dispatch(Edit(formValue));
     reset();
+    setTimeout(()=>  window.location="/listar",1000);
   };
 
   const handleFileChange = (e) => {
