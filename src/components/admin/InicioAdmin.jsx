@@ -27,7 +27,7 @@ export const InicioAdmin = () => {
     const { name } = useSelector((state) => state.auth);
     return (
         <div id="contenedor-Indexadmin">
-            <Title>Bienvenido/a <br/> Doctor/a. {name}</Title>
+            <Title>Bienvenido {name}</Title>
 
             <div className="container__categorias--admin">
                 <div className="grid admin">

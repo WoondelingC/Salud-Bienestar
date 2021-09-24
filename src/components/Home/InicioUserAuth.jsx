@@ -46,7 +46,7 @@ export const InicioUserAuth = () => {
     return (
         <div className="container-fluid">
          
-            <Title>¡Hola!, Bienvenido/a {name}</Title>
+            <Title>¡Hola!, Bienvenido {name}</Title>
             <div className="container__Agendar-cita">
                 <div className="container__Agendar-cita--titleImg">
                     <img src={icon} alt="Libreta-De-Agendas" />
